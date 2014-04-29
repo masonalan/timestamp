@@ -1,0 +1,35 @@
+.washed{
+	-webkit-filter: contrast(145%) saturate(79%) grayscale(15%);
+}
+.vibrant{
+	-webkit-filter: contrast(110%) saturate(120%) brightness(110%);
+}
+.gray{
+	-webkit-filter: contrast(110%) saturate(45%) grayscale(10%);
+}
+.inverted{
+	-webkit-filter: invert(100%);
+}
+.blur{
+	-webkit-filter:blur(1px) brightness(120%) contrast(105%);
+}
+.worn{
+	-webkit-filter: contrast(140%) saturate(67%) brightness(93%) grayscale(16%);
+}
+.demo{
+	float: left;
+	border-radius: 2px;
+	cursor: pointer;
+	transition: 0.1s;
+}
+.demo:hover{
+	opacity: 0.7;
+}
+.demo:active{
+	opacity: 0.5;
+}
+.spacer-templates{
+	padding-right: 10px;
+	float: left;
+	color: white;
+}
