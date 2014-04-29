@@ -9,11 +9,16 @@ class SearchController extends BaseController {
 			$user_image_name = $username.'image001.jpg';
 			$user_profile_img = 'users/'.$username.$user_id.'/'.$username.'image001.jpg';
 			$titlePage = "$query";
-			return View::make('interfaces/search')->with('titlePage', $titlePage)->with('user', $user)->with('user_profile_img', $user_profile_img)->with('userProf', $userProf);
+			$found = User::where('username', 'like', '%'.$query.'%')->get();
+			return View::make('interfaces/search')
+				->with('titlePage', $titlePage)->with('user', $user)
+				->with('user_profile_img', $user_profile_img)
+				->with('userProf', $userProf)
+				->with('found', $found)
+				->with('query', $query);
 		}
 	public function handleSearch(){
 		$userInput = Input::get('search');
-		$found = User::where('username', 'like', '%'.$userInput.'%')->get();
 		return Redirect::to('search/'.$userInput);
 	}
 }
