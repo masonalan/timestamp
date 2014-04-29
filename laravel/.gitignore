@@ -6,3 +6,6 @@ composer.lock
 .env.php
 .DS_Store
 Thumbs.db
+/public/post_img
+/public/reply_img
+/public/users
