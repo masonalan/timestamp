@@ -4,7 +4,7 @@
     <div class="content">
     <h1 class="post-tabs"><a class="recent-link follower-page">Posts from {{$place}}</a></h1>
     @foreach($location_match as $loc)
-    	<?php $post = Post::find($loc->id);
+    	<?php $post = Post::find($loc->post_id);
     	$ip = $post->ip_address;
     	?>
 
