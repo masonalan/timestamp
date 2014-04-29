@@ -111,9 +111,16 @@ echo "$tweet";
                         <a href="{{url("profile/$reply->user_id")}}"><img class="post-avatar reply-avatar" alt="Tilo Mitra&#x27;s avatar" height="38" width="38" src="{{asset('users/'.$reply->user_info()->username.$reply->user_info()->id.'/'.$reply->user_info()->username.'image001.jpg')}}"></a> 
                         <a href="{{url("profile/$reply->user_id")}}" class="post-author">{{{$reply->user->username}}}</a><span class="reply-timestamp"> on {{date('l F jS g:i A', strtotime($reply->created_at))}}</span>
                         <br>
-                        <p>
+                        <a class="tab-post-links" href="{{url('post/'.$post->id.'#'.$reply->id)}}"><p>
                             {{{$reply->content}}}
-                        </p>
+                            @if($reply->image_id == 1)
+                                <?php 
+                                list($width, $height) = getimagesize('reply_img/'.$reply->id.'/'.$reply->id.'reply001.jpg');?>
+                                <link rel="stylesheet" type="text/css" href="{{asset('image.css')}}">
+                                <br>
+                                    <center><img style="width:50%;height:auto" class="{{$post->image_class}}" src="{{asset('reply_img/'.$reply->id.'/'.$reply->id.'reply001.jpg')}}"></center>
+                            @endif
+                        </p></a>
                         @endforeach
                         <hr>
                             <div class="modal-comment">

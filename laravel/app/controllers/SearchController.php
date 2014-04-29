@@ -13,7 +13,7 @@ class SearchController extends BaseController {
 		}
 	public function handleSearch(){
 		$userInput = Input::get('search');
-		$found = User::where('first_name', 'like', '%'.$userInput.'%')->get();
+		$found = User::where('username', 'like', '%'.$userInput.'%')->get();
 		return Redirect::to('search/'.$userInput);
 	}
 }

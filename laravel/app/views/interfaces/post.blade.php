@@ -68,21 +68,46 @@
                             </p>
                         </div>
                         @foreach($post->replies()->get() as $reply)
-                        <hr>
+                        <hr id="{{$reply->id}}">
 
                         <a href="{{url("profile/$reply->user_id")}}"><img class="post-avatar reply-avatar" alt="Tilo Mitra&#x27;s avatar" height="38" width="38" src="{{asset('users/'.$reply->user_info()->username.$reply->user_info()->id.'/'.$reply->user_info()->username.'image001.jpg')}}"></a>
                         <a href="{{url("profile/$reply->user_id")}}" class="post-author">{{{$reply->user->username}}}</a></span>
                         <br>
                         <p>
                             {{{$reply->content}}}
+                            @if($reply->image_id == 1)
+                                <?php 
+                                list($width, $height) = getimagesize('reply_img/'.$reply->id.'/'.$reply->id.'reply001.jpg');?>
+                                <link rel="stylesheet" type="text/css" href="{{asset('image.css')}}">
+                                <br>
+                                    <center><img style="width:40%;height:auto" class="{{$post->image_class}}" src="{{asset('reply_img/'.$reply->id.'/'.$reply->id.'reply001.jpg')}}"></center>
+                            @endif
                         </p>
                         @endforeach
                         <hr>
                             <div class="modal-comment">
                                 <p>
-                                    <form action="{{action('PostController@reply', array('post'=>$post->id))}}" method="POST">
+                                    <form action="{{action('PostController@reply', array('post'=>$post->id))}}" method="POST" enctype="multipart/form-data">
+                                    <input type="text" name="content" id="comment" class="focused-comment" placeholder="Reply...">
+                                    <input type="hidden" value="false" name="has_image"></span>
+                                    <div class="spacer-upload-button">
+                                            <div class="fileUpload button-secondary pure-button">  
+                                                    <span>Upload</span>
+                                                    <input type="file" id="profile_image" name="post_img" class="upload" />
+                                                </div>
+                                                <br><br>
+                                                <span id="image_error" class="error"></span>
+                                            </div>
+                                            <div class="spacer-upload-button">
+                                            <div class="fileUpload  button-success pure-button">  
+                                                <span>Submit</span>
+                                                <input type="submit" id="profile_image" class="upload" />
+                                            </div>
+                                            <br><br>
+                                            <span id="image_error" class="error"></span>
+                                    </div>
+                                    <br><br>
 
-                                    <input type="text" name="content" id="comment" placeholder="Reply...">
 
                                     </form>
                                 </p>

@@ -81,5 +81,5 @@ Route::get('/world', 'WorldController@world');
 *for searching shit
 */
 
-Route::get('/d', 'SearchController@handleSearch');
+Route::get('search/handler/ngjp', 'SearchController@handleSearch');
 Route::get('/search/{$query}', 'SearchController@search');

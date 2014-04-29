@@ -1268,6 +1268,9 @@ body {
     width: 46%;
     float: left !important;
 }
+.focused-comment{
+    width: 74% !important;
+}
 .content-wrapper
 {
     background-color: rgb(235, 235, 235);
