@@ -5,6 +5,20 @@ use Illuminate\Auth\Reminders\RemindableInterface;
 
 class Post extends Eloquent implements UserInterface, RemindableInterface
 {
+	public function getRememberToken()
+	{
+	    return $this->remember_token;
+	}
+
+	public function setRememberToken($value)
+	{
+	    $this->remember_token = $value;
+	}
+
+	public function getRememberTokenName()
+	{
+	    return 'remember_token';
+	}
 	protected $table = 'posts';
 	public function post_id()
 	{
