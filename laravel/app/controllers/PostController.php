@@ -18,16 +18,17 @@ class PostController extends BaseController {
 			$post->image_id = 1;
 			$post->image_class = Input::get('classes');
 			$post->deleting_at = $now + $five;
-			$post->ip_address = Request::getClientIp();
-			$post->save();
-			$location = new Location;
 			$ip = Request::getClientIp();
 			if($ip='::1'){
-				$ip = '173.59.69.109';
+				$ip = '207.245.119.4';
 			}
+			$post->ip_address = $ip;
+			$post->save();
+			$location = new Location;
 			$details = json_decode(file_get_contents("http://ipinfo.io/{$ip}/json"));
 			$location->location = "$details->city $details->region, $details->country";
 			$location->post_id = $post->id;
+			$location->ip_address = $ip;
 			$location->save();
 
 			$path_img = 'post_img/'.$post->id;
@@ -45,16 +46,17 @@ class PostController extends BaseController {
 			$post->image_id = 1;
 			$post->image_classes = Input::get('classes');
 			$post->deleting_at = $now + $five;
-			$post->ip_address = Request::getClientIp();
-			$post->save();
-			$location = new Location;
 			$ip = Request::getClientIp();
 			if($ip='::1'){
-				$ip = '173.59.69.109';
+				$ip = '207.245.119.4';
 			}
+			$post->ip_address = Request::$ip;
+			$post->save();
+			$location = new Location;
 			$details = json_decode(file_get_contents("http://ipinfo.io/{$ip}/json"));
 			$location->location = "$details->city $details->region, $details->country";
 			$location->post_id = $post->id;
+			$location->ip_address = $ip;
 			$location->save();
 			mkdir('post_img');
 			$path_img = 'post_img/'.$post->id;
@@ -69,16 +71,17 @@ class PostController extends BaseController {
 		$post->like_count = 0;
 		$post->image_id = 0;
 		$post->deleting_at = $now + $five;
-		$post->ip_address = Request::getClientIp();
-		$post->save();
-		$location = new Location;
 		$ip = Request::getClientIp();
 		if($ip='::1'){
-			$ip = '173.59.69.109';
+			$ip = '207.245.119.4';
 		}
+		$post->ip_address = $ip;
+		$post->save();
+		$location = new Location;
 		$details = json_decode(file_get_contents("http://ipinfo.io/{$ip}/json"));
 		$location->location = "$details->city $details->region, $details->country";
 		$location->post_id = $post->id;
+		$location->ip_address = $ip;
 		$location->save();
 		return Redirect::back();
      }
@@ -144,9 +147,13 @@ class PostController extends BaseController {
 		$post_id = $post->id;
 		$titlePage = "{$post->username()}";
 		$user = Auth::user();
-		$location = Location::where('post_id', '=', $post->id)->get();
-		#$place = $location->location;
-		return View::make('interfaces.post')->with('titlePage', $titlePage)->with('post', $post)->with('user', $user);
+		$location = Location::where('post_id', '=', $post_id)->first();
+		$place = Location::find($location->id);
+		return View::make('interfaces.post')
+			->with('titlePage', $titlePage)
+			->with('post', $post)
+			->with('user', $user)
+			->with('place', $place);
 	}
 
 

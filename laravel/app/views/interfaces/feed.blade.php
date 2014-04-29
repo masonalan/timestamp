@@ -93,7 +93,7 @@ echo "$tweet";
                                         <?php 
                                         list($width, $height) = getimagesize('post_img/'.$post->id.'/'.$post->id.'image001.jpg');?>
                                         <link rel="stylesheet" type="text/css" href="{{asset('image.css')}}">
-                                            <hr>
+                                            
                                             <center><img style="width:100%;height:auto" class="{{$post->image_class}}" src="{{asset('post_img/'.$post->id.'/'.$post->id.'image001.jpg')}}"></center>
                                     @endif
                                 @else
@@ -203,7 +203,6 @@ echo "$tweet";
                                         <?php 
                                         list($width, $height) = getimagesize('post_img/'.$post->id.'/'.$post->id.'image001.jpg');?>
                                             <link rel="stylesheet" type="text/css" href="{{asset('image.css')}}">
-                                            <hr>
                                             <center><img style="width:100%;height:auto" class="{{$post->image_class}}" src="{{asset('post_img/'.$post->id.'/'.$post->id.'image001.jpg')}}"></center>
                                     @endif
                                 @else

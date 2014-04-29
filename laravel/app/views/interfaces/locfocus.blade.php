@@ -1,25 +1,15 @@
 @extends('template')
 @section('content')
-<?php $location = Location::where('post_id', '=', $post->id)->get();?>
 <div class="content-wrapper">
     <div class="content">
-        <div>
+    <h1 class="post-tabs"><a class="recent-link follower-page">Posts from {{$place}}</a></h1>
+    @foreach($location_match as $loc)
+    	<?php $post = Post::find($loc->id);
+    	$ip = $post->ip_address;
+    	?>
 
-
-            <div class=" recent">
-            <?php 
-
-            /*
-            $timezone = Config::get('app.timezone', 'EST');
-            if(date('l F jS g:i A', strtotime($post->created_at))>date('l F jS g:i A')){
-                $posted_time = $post->created_at;
-                dd($strtotime($posted_time));
-                DB::table('posts')->where("strtotime($posted_time)", ">", "172800")->delete();
-            }
-
-            */
-            ?>
-                <section class="post post-container-border">
+		<a href="{{url('post/'.$post->id)}}" class="tab-post-links">
+			<section class="post post-container-border">
                         <table class="post-header-table">
                             <tr>
                                 <td>
@@ -45,7 +35,7 @@
                                         <span>Stamped {{date('l F jS g:i A', strtotime($post->created_at))}}</span>
                                         <br>
                                         <span><script type="text/javascript">$('#compact').countdown({until: {{12/21/21}}, compact: true,description: ''});</script></span>
-                                        <a href="{{url('location/'.$post->id)}}"><span>{{$place->location}}</span></a>
+                                        <a href="{{url('location/'.$post->id)}}"><span>{{$place}}</span></a>
                                         </p>
                                     </header>
                                 </td>
@@ -114,10 +104,8 @@
                                 </p>
                             </div>
                     </section>
-                    
-                </div>
+		</a><br>
+	@endforeach
+	</div>
 </div>
-</div>
-</div>
-            
 @stop
