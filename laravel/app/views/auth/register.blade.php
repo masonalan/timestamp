@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 
 </head>
-<body>
+<body style="background-image:{{asset('graphics/background-n.JPG')}}">
 
 
 <div class="header">
