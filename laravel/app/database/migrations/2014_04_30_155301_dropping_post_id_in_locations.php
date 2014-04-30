@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddPostFilters extends Migration {
+class DroppingPostIdInLocations extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,9 +12,7 @@ class AddPostFilters extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('posts', function($table){
-			$table->string('image_class')->nullable;
-		});
+		//
 	}
 
 	/**
@@ -24,7 +22,9 @@ class AddPostFilters extends Migration {
 	 */
 	public function down()
 	{
-		//
+		Schema::table('location', function($table){
+			$table->dropColumn('post_id');
+		});
 	}
 
 }

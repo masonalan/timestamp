@@ -25,11 +25,23 @@ class PostController extends BaseController {
 			$post->ip_address = $ip;
 			$post->save();
 			$location = new Location;
-			$details = json_decode(file_get_contents("http://ipinfo.io/{$ip}/json"));
-			$location->location = "$details->city $details->region, $details->country";
-			$location->post_id = $post->id;
-			$location->ip_address = $ip;
 			$location->save();
+			$post_ip = $post->ip_address;
+			$details = json_decode(file_get_contents("http://ipinfo.io/{$post_ip}/json"));
+			$location_post = "$details->city $details->region, $details->country";
+			$location_given = Location::where('location', '=', $location_post)->first();
+			if(isset($location_given)){
+				$post->location_id = $location_given->id;
+				$post->save();
+			} else {
+				$details = json_decode(file_get_contents("http://ipinfo.io/{$ip}/json"));
+				$location->location = "$details->city $details->region, $details->country";
+				
+				$location->ip_address = $ip;
+				$location->save();
+				$post->location_id = $location->id;
+				$post->save();
+			}
 
 			$path_img = 'post_img/'.$post->id;
 			mkdir($path_img);
@@ -44,20 +56,31 @@ class PostController extends BaseController {
 			$post->content = Input::get('content');
 			$post->like_count = 0;
 			$post->image_id = 1;
-			$post->image_classes = Input::get('classes');
+			$post->image_class = Input::get('classes');
 			$post->deleting_at = $now + $five;
 			$ip = Request::getClientIp();
 			if($ip='::1'){
 				$ip = '207.245.119.4';
 			}
-			$post->ip_address = Request::$ip;
+			$post->ip_address = $ip;
 			$post->save();
 			$location = new Location;
-			$details = json_decode(file_get_contents("http://ipinfo.io/{$ip}/json"));
-			$location->location = "$details->city $details->region, $details->country";
-			$location->post_id = $post->id;
-			$location->ip_address = $ip;
 			$location->save();
+			$post_ip = $post->ip_address;
+			$details = json_decode(file_get_contents("http://ipinfo.io/{$post_ip}/json"));
+			$location_post = "$details->city $details->region, $details->country";
+			$location_given = Location::where('location', '=', $location_post)->first();
+			if(isset($location_given)){
+				$post->location_id = $location_given->id;
+				$post->save();
+			} else {
+				$details = json_decode(file_get_contents("http://ipinfo.io/{$ip}/json"));
+				$location->location = "$details->city $details->region, $details->country";
+				$location->ip_address = $ip;
+				$location->save();
+				$post->location_id = $location->id;
+				$post->save();
+			}
 			mkdir('post_img');
 			$path_img = 'post_img/'.$post->id;
 			mkdir($path_img);
@@ -78,11 +101,22 @@ class PostController extends BaseController {
 		$post->ip_address = $ip;
 		$post->save();
 		$location = new Location;
-		$details = json_decode(file_get_contents("http://ipinfo.io/{$ip}/json"));
-		$location->location = "$details->city $details->region, $details->country";
-		$location->post_id = $post->id;
-		$location->ip_address = $ip;
-		$location->save();
+			$location->save();
+			$post_ip = $post->ip_address;
+			$details = json_decode(file_get_contents("http://ipinfo.io/{$post_ip}/json"));
+			$location_post = "$details->city $details->region, $details->country";
+			$location_given = Location::where('location', '=', $location_post)->first();
+			if(isset($location_given)){
+				$post->location_id = $location_given->id;
+				$post->save();
+			} else {
+				$details = json_decode(file_get_contents("http://ipinfo.io/{$ip}/json"));
+				$location->location = "$details->city $details->region, $details->country";
+				$location->ip_address = $ip;
+				$location->save();
+				$post->location_id = $location->id;
+				$post->save();
+			}
 		return Redirect::back();
      }
     return Redirect::back();
@@ -147,8 +181,8 @@ class PostController extends BaseController {
 		$post_id = $post->id;
 		$titlePage = "{$post->username()}";
 		$user = Auth::user();
-		$location = Location::where('post_id', '=', $post_id)->first();
-		$place = Location::find($location->id);
+		$place = Location::find($post->location_id);
+
 		return View::make('interfaces.post')
 			->with('titlePage', $titlePage)
 			->with('post', $post)

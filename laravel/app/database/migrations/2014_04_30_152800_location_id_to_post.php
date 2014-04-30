@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddPostFilters extends Migration {
+class LocationIdToPost extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -13,7 +13,7 @@ class AddPostFilters extends Migration {
 	public function up()
 	{
 		Schema::table('posts', function($table){
-			$table->string('image_class')->nullable;
+			$table->integer('location_id');
 		});
 	}
 

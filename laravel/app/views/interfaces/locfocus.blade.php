@@ -3,10 +3,7 @@
 <div class="content-wrapper">
     <div class="content">
     <h1 class="post-tabs"><a class="recent-link follower-page">Posts from {{$place}}</a></h1>
-    @foreach($location_match as $loc)
-    	<?php $post = Post::find($loc->post_id);
-    	$ip = $post->ip_address;
-    	?>
+    @foreach($posts as $post)
 
 		<a href="{{url('post/'.$post->id)}}" class="tab-post-links">
 			<section class="post post-container-border">

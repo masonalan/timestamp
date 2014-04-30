@@ -102,7 +102,7 @@ echo "$tweet";
                             </p>
                         </a>
                         </div>
-                        @foreach($post->replies()->take(3)->get() as $reply)
+                        @foreach($post->replies()->take(3)->orderBy('id', 'desc')->get() as $reply)
                         <?php 
                         $tracker++;
                         ?>
@@ -150,6 +150,7 @@ echo "$tweet";
                                     </form>
                                 </p>
                             </div>
+                            
                     </section>
                     
                 </div>

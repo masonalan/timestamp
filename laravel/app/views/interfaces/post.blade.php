@@ -45,7 +45,7 @@
                                         <span>Stamped {{date('l F jS g:i A', strtotime($post->created_at))}}</span>
                                         <br>
                                         <span><script type="text/javascript">$('#compact').countdown({until: {{12/21/21}}, compact: true,description: ''});</script></span>
-                                        <a href="{{url('location/'.$post->id)}}"><span>{{$place->location}}</span></a>
+                                        <a href="{{url('location/'.$post->location_id)}}"><span>{{$place->location}}</span></a>
                                         </p>
                                     </header>
                                 </td>
