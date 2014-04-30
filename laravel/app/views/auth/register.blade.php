@@ -15,12 +15,13 @@
 
 <div class="header">
     <div class="pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed home-menu">
-        <a class="pure-menu-heading timestamp-registration">Timestamp</a>
-        <ul>
+        <ul style="width:100%;">
         <form method="POST" action="{{action('AuthController@handleLogin')}}">
-            <li><input class="form-control input-sm email" type="text" placeholder="Username or email" name="email"></li>
-            <li><input class="form-control input-sm" type="password" placeholder="Password" name="password"></li>
-            <li><input class="btn btn-link regis-btn" type="submit" value="Sign In"></li>
+            <a class="pure-menu-heading timestamp-registration" style="float:left !important">Timestamp</a>
+            <li style="padding-top:13px;float:right"><input class="btn btn-link regis-btn" type="submit" value="Sign In"></li>
+            <li style="padding-top:13px;float:right"><input class="form-control input-sm" type="password" placeholder="Password" name="password"></li>
+            <li style="padding-top:13px;float:right"><input class="form-control input-sm email" type="text" placeholder="Username or email" name="email"></li>
+            
         </form>
         </ul>
     </div>
