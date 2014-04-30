@@ -24,8 +24,7 @@ class PostController extends BaseController {
 			}
 			$post->ip_address = $ip;
 			$post->save();
-			$location = new Location;
-			$location->save();
+			
 			$post_ip = $post->ip_address;
 			$details = json_decode(file_get_contents("http://ipinfo.io/{$post_ip}/json"));
 			$location_post = "$details->city $details->region, $details->country";
@@ -34,6 +33,7 @@ class PostController extends BaseController {
 				$post->location_id = $location_given->id;
 				$post->save();
 			} else {
+				$location = new Location;
 				$details = json_decode(file_get_contents("http://ipinfo.io/{$ip}/json"));
 				$location->location = "$details->city $details->region, $details->country";
 				
@@ -64,8 +64,6 @@ class PostController extends BaseController {
 			}
 			$post->ip_address = $ip;
 			$post->save();
-			$location = new Location;
-			$location->save();
 			$post_ip = $post->ip_address;
 			$details = json_decode(file_get_contents("http://ipinfo.io/{$post_ip}/json"));
 			$location_post = "$details->city $details->region, $details->country";
@@ -74,6 +72,7 @@ class PostController extends BaseController {
 				$post->location_id = $location_given->id;
 				$post->save();
 			} else {
+				$location = new Location;
 				$details = json_decode(file_get_contents("http://ipinfo.io/{$ip}/json"));
 				$location->location = "$details->city $details->region, $details->country";
 				$location->ip_address = $ip;
@@ -100,8 +99,7 @@ class PostController extends BaseController {
 		}
 		$post->ip_address = $ip;
 		$post->save();
-		$location = new Location;
-			$location->save();
+
 			$post_ip = $post->ip_address;
 			$details = json_decode(file_get_contents("http://ipinfo.io/{$post_ip}/json"));
 			$location_post = "$details->city $details->region, $details->country";
@@ -110,6 +108,7 @@ class PostController extends BaseController {
 				$post->location_id = $location_given->id;
 				$post->save();
 			} else {
+				$location = new Location;
 				$details = json_decode(file_get_contents("http://ipinfo.io/{$ip}/json"));
 				$location->location = "$details->city $details->region, $details->country";
 				$location->ip_address = $ip;
