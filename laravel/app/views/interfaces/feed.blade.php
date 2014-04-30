@@ -88,11 +88,11 @@ var_dump( $matches );
                         <a href="{{url('post/'.$post->id)}}" class="tab-post-links"><div class="post-description">
                             <p>
                                 <?php 
-                                    $text = "{{$post->content}}";
+                                    $text = "{{{$post->content}}}";
                                     $text = preg_replace('/#(\w+)/', "<a href=\"tag/$1\">$1</a>", $text);
                                 ?>
 
-                                {{{$text}}}
+                                {{$text}}
                                 
                                 <hr>
                                 @if(file_exists('post_img'))
