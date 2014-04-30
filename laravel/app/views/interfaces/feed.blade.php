@@ -89,7 +89,6 @@ var_dump( $matches );
                             <p>
                                 {{{$post->content}}}
                                 
-                                <hr>
                                 @if(file_exists('post_img'))
                                     @if($post->image_id == 1)
                                         <?php 
