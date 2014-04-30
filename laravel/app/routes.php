@@ -70,7 +70,7 @@ Route::get('/notfound', 'UserController@notfound');
 Route::get('/intended', 'UserController@back');
 Route::get('/profile/{id}/followers', 'UserController@detailFollowers');
 Route::get('/profile/{id}/following', 'UserController@detailFollowing');
-Route::get('handleDetails', 'UserController@handleDetails');
+Route::post('handleDetails', 'UserController@handleDetails');
 
 /**
  *WorldController (Controls the map and world fucntions)

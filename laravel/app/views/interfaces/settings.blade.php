@@ -222,28 +222,8 @@
                         </div>
                         <form action="{{action('UserController@handleDetails')}}" method="POST">
                             <div class="post-description">
-                                <input type="text" class="details-input" name="firstname" placeholder="
-                                <?php
-                                if(empty($user->firstname))
-                                {
-                                    echo "First Name";
-                                }
-                                else{
-                                    echo "$user->firstname";
-                                }
-                                ?>
-                                ">
-                                <input type="text"  class="details-input" name="lastname" placeholder="
-                                <?php
-                                if(empty($user->firstname))
-                                {
-                                    echo "Last Name";
-                                }
-                                else{
-                                    echo "$user->lastname";
-                                }
-                                ?>
-                                ">
+                                <input type="text" class="details-input" name="firstname" value="<?php if(empty($user->firstname)){echo "First Name";}else{echo "$user->firstname";}?>">
+                                <input type="text"  class="details-input" name="lastname" value="<?php if(empty($user->firstname)){echo "Last Name";}else{echo "$user->lastname";}?>">
 
                             </div>
                             <br>
