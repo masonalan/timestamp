@@ -35,6 +35,7 @@ class AuthController extends BaseController {
 				$user_profile_img = 'users/'.$username.$userId.'/'.$username.'image001.jpg';
 				$user_path_profile = "users/$username$userId";
 			if(!file_exists($user_path_profile)){
+				mkdir('users');
 				mkdir($user_path_profile);
 				copy('prof.jpg', $user_profile_img);
 				return Redirect::action('FeedController@feed');
@@ -44,6 +45,7 @@ class AuthController extends BaseController {
 		} else {
 			if (Auth::attempt(array('username' => $email, 'password' => $password)))
 			{
+				mkdir('users');
 				$user = Auth::user();
 				$username = $user->username;
 				$userId = $user->id;
