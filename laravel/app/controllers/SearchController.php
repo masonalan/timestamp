@@ -26,6 +26,14 @@ class SearchController extends BaseController {
 					->with('userProf', $userProf)
 					->with('found', $found)
 					->with('query', $query);
+			} elseif ($type == 'tag') {
+				$found = Post::where('content', 'like', '%'.$query.'%')->get();
+				return View::make('interfaces/hsearch')
+					->with('titlePage', $titlePage)->with('user', $user)
+					->with('user_profile_img', $user_profile_img)
+					->with('userProf', $userProf)
+					->with('found', $found)
+					->with('query', $query);
 			}
 			else {
 				$found = User::where('username', 'like', '%'.$query.'%')->get();
@@ -57,6 +65,10 @@ class SearchController extends BaseController {
 		elseif (strrpos($userInput, '.') == 1) {
 				$userInput = str_replace(' .', '', $userInput);
 				$type = 'post';
+		}
+		elseif (strrpos($userInput, '#') == 1) {
+				$userInput = str_replace(' #', '', $userInput);
+				$type = 'tag';
 		} else{
 			$userInput = str_replace(' ', '', $userInput);
 			$type = 'user';

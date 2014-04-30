@@ -87,7 +87,14 @@ var_dump( $matches );
 
                         <a href="{{url('post/'.$post->id)}}" class="tab-post-links"><div class="post-description">
                             <p>
-                                {{{$post->content}}}
+                                <?php 
+                                    $text = "{{$post->content}}";
+                                    $text = preg_replace('/#(\w+)/', "<a href=\"tag/$1\">$1</a>", $text);
+                                ?>
+
+                                {{{$text}}}
+                                
+                                <hr>
                                 @if(file_exists('post_img'))
                                     @if($post->image_id == 1)
                                         <?php 
@@ -99,6 +106,7 @@ var_dump( $matches );
                                 @else
                                     <span>Image not found on server</span>
                                 @endif
+                                <br>
                             </p>
                         </a>
                         </div>
