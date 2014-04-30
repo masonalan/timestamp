@@ -29,24 +29,33 @@ class AuthController extends BaseController {
 		if (Auth::attempt(array('email' => $email, 'password' => $password)))
 		{
 			$user = Auth::user();
-				$username = $user->username;
-				$userId = $user->id;
-				$path_to_users = "users";
-				$user_profile_img = 'users/'.$username.$userId.'/'.$username.'image001.jpg';
-				$user_path_profile = "users/$username$userId";
+			$log_count = $user->login_countl;
+			$user->login_count = $log_count + 1;
+			$user->save();
+			$username = $user->username;
+			$userId = $user->id;
+			$path_to_users = "users";
+			$user_profile_img = 'users/'.$username.$userId.'/'.$username.'image001.jpg';
+			$user_path_profile = "users/$username$userId";
 			if(!file_exists($user_path_profile)){
-				mkdir('users');
 				mkdir($user_path_profile);
 				copy('prof.jpg', $user_profile_img);
+				if ($log_count < '8') {
+					return Redirect::action('HelpController@helper_new');
+				} else{
 				return Redirect::action('FeedController@feed');
+				}
 			} else {
 				return Redirect::action('FeedController@feed');
 			}
 		} else {
 			if (Auth::attempt(array('username' => $email, 'password' => $password)))
 			{
-				mkdir('users');
 				$user = Auth::user();
+				$user = Auth::user();
+				$log_count = $user->login_count;
+				$user->login_count = $log_count + 1;
+				$user->save();
 				$username = $user->username;
 				$userId = $user->id;
 				$path_to_users = "users";
@@ -55,7 +64,11 @@ class AuthController extends BaseController {
 				if(!file_exists($user_path_profile)){
 					mkdir($user_path_profile);
 					copy('prof.jpg', $user_profile_img);
-					return Redirect::action('FeedController@feed');
+					if ($log_count < '8') {
+						return Redirect::action('HelpController@helper_new');
+					} else{
+						return Redirect::action('FeedController@feed');
+					}
 				} else {
 					return Redirect::action('FeedController@feed');
 				}

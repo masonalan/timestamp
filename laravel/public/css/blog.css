@@ -303,6 +303,14 @@
         width: 20.8333%;
         *width: 20.8023%;
     }
+    .help-desk-text{
+        font-size: 13pt !important;
+        font-weight: medium;
+    }
+    .indentifier-text{
+        font-size: 11pt!important;
+        font-weight: bold;
+    }
 
     .pure-u-med-1-4,
     .pure-u-med-6-24 {
