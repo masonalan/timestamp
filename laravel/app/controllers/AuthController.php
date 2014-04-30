@@ -40,7 +40,7 @@ class AuthController extends BaseController {
 			if(!file_exists($user_path_profile)){
 				mkdir($user_path_profile);
 				copy('prof.jpg', $user_profile_img);
-				if ($log_count < '8') {
+				if ($log_count < 8) {
 					return Redirect::action('HelpController@helper_new');
 				} else{
 				return Redirect::action('FeedController@feed');
@@ -64,7 +64,7 @@ class AuthController extends BaseController {
 				if(!file_exists($user_path_profile)){
 					mkdir($user_path_profile);
 					copy('prof.jpg', $user_profile_img);
-					if ($log_count < '8') {
+					if ($log_count < 8) {
 						return Redirect::action('HelpController@helper_new');
 					} else{
 						return Redirect::action('FeedController@feed');
