@@ -14,13 +14,14 @@ class AuthController extends BaseController {
 		}
 		if (isset($email_username->id)) {
 			return 'error:Email taken!';
+		} else {
+			$user = new User;
+			$user->username = $username;
+			$user->email = $email;
+			$user->password = Hash::make(Input::get('password'));
+			$user->save();
+			return Redirect::action('HomeController@start');
 		}
-		$user = new User;
-		$user->username = $username;
-		$user->email = $email;
-		$user->password = Hash::make(Input::get('password'));
-		$user->save();
-		return Redirect::to('/');
 	}
 	public function handleLogin()
 	{
@@ -51,7 +52,6 @@ class AuthController extends BaseController {
 		} else {
 			if (Auth::attempt(array('username' => $email, 'password' => $password)))
 			{
-				$user = Auth::user();
 				$user = Auth::user();
 				$log_count = $user->login_count;
 				$user->login_count = $log_count + 1;

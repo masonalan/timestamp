@@ -60,6 +60,7 @@ Route::get('/post/{id}', 'PostController@focus');
  */
 
 Route::get('/profile/{id}', 'UserController@profile');
+Route::get('/u/{username}', 'UserController@gui_prof');
 Route::post('/profile/handleUpload', 'UserController@handleUpload');
 Route::get('/settings', 'UserController@settings');
 Route::post('/handleAbout', 'UserController@handleAbout');

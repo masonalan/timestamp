@@ -6,6 +6,17 @@ class UserController extends BaseController {
 		if(Auth::check()){
 			$user = Auth::user();
 			$userProf = User::find($user_id);
+			return Redirect::to('/u/'.$userProf->username);
+
+		} else{
+			return Redirect::to('/');
+		}
+	}
+	public function gui_prof($user_username)
+	{
+		if(Auth::check()){
+			$user = Auth::user();
+			$userProf = User::where('username', '=', $user_username)->first();
 			$userId = $user->id;
 			$path_to_users = "users";
 			$username = $user->username;
@@ -15,7 +26,7 @@ class UserController extends BaseController {
 			$user_profile_img = 'users/'.$username.$userId.'/'.$username.'image001.jpg';
 			$follower = $userProf->followed()->take(5)->get();
 			$following = $userProf->following()->take(5)->get();
-			$recent_posts = Post::where('user_id', '=', $user_id)->orderBy('created_at', 'desc')->get();
+			$recent_posts = Post::where('user_id', '=', $userProf->id)->orderBy('created_at', 'desc')->get();
 			return View::make('interfaces/profile')
 				->with('user', $user)
 				->with('recent_posts', $recent_posts)
@@ -28,6 +39,7 @@ class UserController extends BaseController {
 			return Redirect::to('/');
 		}
 	}
+
 	public function handleUpload()
 	{
 		$user = Auth::user();
@@ -151,17 +163,28 @@ class UserController extends BaseController {
 		$user = Auth::user();
 		$userProf = User::find($id);
 		$info = $userProf->followed()->get();
+		$info_check = $userProf->followed()->first();
 		$titlePage = "$userProf->username - Followers";
 		
-		return View::make('interfaces.followers')->with('titlePage', $titlePage)->with('user', $user)->with('userProf', $userProf);
+		return View::make('interfaces.followers')
+			->with('titlePage', $titlePage)
+			->with('user', $user)
+			->with('userProf', $userProf)
+			->with('info_check', $info_check);;
 	}
 	public function detailFollowing($id)
 	{
 		$user = Auth::user();
 		$userProf = User::find($id);
+		$info_check = $userProf->following()->first();
 		$info = $userProf->following()->get();
 		$titlePage = "$userProf->username - Following";
 		
-		return View::make('interfaces.following')->with('titlePage', $titlePage)->with('user', $user)->with('userProf', $userProf)->with('info', $info);
+		return View::make('interfaces.following')
+			->with('titlePage', $titlePage)
+			->with('user', $user)
+			->with('userProf', $userProf)
+			->with('info', $info)
+			->with('info_check', $info_check);
 	}
 }

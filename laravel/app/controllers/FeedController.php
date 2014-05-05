@@ -6,8 +6,20 @@ class FeedController extends BaseController {
 		if(Auth::check()){
 			$user = Auth::user();
 			$titlePage = "Timestamp";
+			$following = $user->following()->get();
+			$following_id = '';
+			$counter = 0;
+			foreach($following as $f)
+			{
+				$counter = $counter + 1;
+
+				$following_id = $following_id.$f->user_id.'.';
+
+			}
+			$test = explode('.', $following_id);
+			$posts = Post::where('id', '>', '0')->get();
 			$recent_posts = Post::orderBy('created_at', 'desc')->get();
-			$top_posts = Post::orderBy('like_count', 'desc')->orderBy('created_at', 'desc')->take(10)->get();
+			$top_posts = Post::orderBy('like_count', 'desc')->orderBy('created_at', 'desc')->take(30)->get();
 			$path_to_users = "users";
 			$username = $user->username;
 			$userId = $user->id;

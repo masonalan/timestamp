@@ -5,7 +5,7 @@
     <h1 class="post-tabs"><a class="recent-link follower-page">People {{$userProf->username}} is following</a></h1>
     @foreach($info as $follower)
     <?php $follower_info = User::orderBy('username', 'desc')->find($follower->user_id);?>
-    	@if(empty($follower_info))
+    	@if(!empty($info_check))
     		<section class="post post-container-border">
 		            <table class="post-header-table">
 		                <tr>
@@ -14,7 +14,7 @@
 		                    		
 			                    	<p class="post-meta">
 			                    	
-			                    		<h4>{{$follower_info->username}} is not following anyone</h4>
+			                    		<h4>{{$user->username}} is not following anyone</h4>
 			                    	</p>
 		                    	</header>
 		                    </td>
@@ -33,6 +33,7 @@
 		                    	<header class="post-header">
 		                    		
 			                    	<p class="post-meta">
+			                    	<?php var_dump($info_check);?>
 			                    	
 			                    		<h4>{{$follower_info->username}}</h4>
 			                    	</p>

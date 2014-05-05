@@ -19,12 +19,29 @@ class PostController extends BaseController {
 			$post->image_class = Input::get('classes');
 			$post->deleting_at = $now + $five;
 			$ip = Request::getClientIp();
+			
 			if($ip='::1'){
 				$ip = '207.245.119.4';
 			}
 			$post->ip_address = $ip;
 			$post->save();
-			
+			/*preg_match_all("/(#\w+)/", $post->content, $tags);
+			foreach($tags as $tag)
+			{
+				$tag_given = Tag::where('name', '=', $tag);
+				if (isset($tag_given)) {
+					$tag = Tag::where('name', '=', $tag)->first();
+					$post->tag()->attach($tag);
+				} else {
+					$new_tag = new Tag;
+					$new_tag->name = $tag;
+					$new_tag->save();
+					$post->tag()->attach($new_tag);
+				}
+			}
+			*/
+
+
 			$post_ip = $post->ip_address;
 			$details = json_decode(file_get_contents("http://ipinfo.io/{$post_ip}/json"));
 			$location_post = "$details->city $details->region, $details->country";
@@ -64,6 +81,22 @@ class PostController extends BaseController {
 			}
 			$post->ip_address = $ip;
 			$post->save();
+			/*preg_match_all("/(#\w+)/", $post->content, $tags);
+			foreach($tags as $tag)
+			{
+				$tag_given = Tag::where('name', '=', $tag);
+				if (isset($tag_given)) {
+					$tag = Tag::where('name', '=', $tag)->first();
+					$post->tag()->attach($tag);
+				} else {
+					$new_tag = new Tag;
+					$new_tag->name = $tag;
+					$new_tag->save();
+					$post->tag()->attach($new_tag);
+				}
+			}
+			*/
+
 			$post_ip = $post->ip_address;
 			$details = json_decode(file_get_contents("http://ipinfo.io/{$post_ip}/json"));
 			$location_post = "$details->city $details->region, $details->country";
@@ -99,6 +132,22 @@ class PostController extends BaseController {
 		}
 		$post->ip_address = $ip;
 		$post->save();
+		/*preg_match_all("/(#\w+)/", $post->content, $tags);
+			foreach($tags as $tag)
+			{
+				$tag_given = Tag::where('name', '=', $tag);
+				if (isset($tag_given)) {
+					$tag = Tag::where('name', '=', $tag)->first();
+					$post->tag()->attach($tag);
+				} else {
+					$new_tag = new Tag;
+					$new_tag->name = $tag;
+					$new_tag->save();
+					$post->tag()->attach($new_tag);
+				}
+			}
+			*/
+
 
 			$post_ip = $post->ip_address;
 			$details = json_decode(file_get_contents("http://ipinfo.io/{$post_ip}/json"));

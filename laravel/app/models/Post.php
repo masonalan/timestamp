@@ -9,6 +9,10 @@ class Post extends Eloquent implements UserInterface, RemindableInterface
 	{
 	    return $this->remember_token;
 	}
+	public function tags()
+	{
+		return $this->belongsToMany('Tag');
+	}
 
 	public function setRememberToken($value)
 	{
