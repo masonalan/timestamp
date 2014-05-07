@@ -383,7 +383,7 @@
 			"file": "laravel/app/views/interfaces/feed.blade.php",
 			"settings":
 			{
-				"buffer_size": 14139,
+				"buffer_size": 14266,
 				"line_ending": "Windows"
 			}
 		},
@@ -797,7 +797,7 @@
 	"groups":
 	[
 		{
-			"selected": 14,
+			"selected": 6,
 			"sheets":
 			[
 				{
@@ -996,15 +996,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 14139,
+						"buffer_size": 14266,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								12287,
-								12287
+								8251,
+								8251
 							]
 						],
 						"settings":
@@ -1017,10 +1017,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2539.0,
+						"translation.y": 1479.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -1274,7 +1274,7 @@
 						"translation.y": 1056.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{

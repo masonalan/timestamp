@@ -234,7 +234,7 @@
                                 About
                             </div>
                             <div class="post-description">
-                                {{$userProf->about}}
+                                {{{$userProf->about}}}
                             </div>
                             
                         </section>

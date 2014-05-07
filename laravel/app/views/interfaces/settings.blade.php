@@ -205,7 +205,7 @@
                         </div>
                         <form action="{{action('UserController@handleAbout')}}" method="POST">
                             <div class="post-description">
-                                <textarea class="about-textarea" name="about">{{$user->about}}</textarea>
+                                <textarea class="about-textarea" name="about">{{{$user->about}}}</textarea>
                             </div>
                             <br>
                             <input type="submit" class="button-success pure-button button-success-settings">

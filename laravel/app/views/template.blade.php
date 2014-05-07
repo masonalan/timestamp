@@ -97,7 +97,7 @@ if(empty($titlePage)){
 </div>
 
 @yield('content')
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<!--<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <footer class="footer">
     <div class="pure-menu pure-menu-horizontal pure-menu-open">
         <ul>
@@ -107,6 +107,7 @@ if(empty($titlePage)){
         </ul>
     </div>
 </footer>
+-->
 
 <script src="{{asset('js/jquery.js')}}"></script>
 <script src="{{asset('js/autogrow.js')}}"></script>

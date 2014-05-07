@@ -128,27 +128,27 @@ var_dump( $matches );
                             <div class="modal-comment">
                                 <p>
                                     <form action="{{action('PostController@reply', array('post'=>$post->id))}}" method="POST" enctype="multipart/form-data">
-                                    <input type="text" name="content" id="comment" placeholder="Reply...">
-                                    <input type="hidden" value="false" name="has_image"></span>
-                                    <div class="spacer-upload-button">
-                                            <div class="fileUpload button-secondary pure-button">  
-                                                    <span>Upload</span>
-                                                    <input type="file" id="profile_image" name="post_img" class="upload" />
+                                    <div class="input-group">
+                                                    <div class="fileUpload button-secondary pure-button input-group-addon">  
+                                                        <span>Upload</span>
+                                                        <input type="file" id="profile_image" name="post_img" class="upload" />
+                                                    </div>
+                                                    <br><br>
+                                                    <span id="image_error" class="error"></span>
+                                                </div></span>
+                                        <input type="text" name="content" id="comment" placeholder="Reply...">
+                                        <div class="spacer-upload-button">
+                                                <div class="spacer-upload-button">
+                                                <div class="input-group-addon fileUpload  button-success pure-button">  
+                                                    <span>Submit</span>
+                                                    <input type="submit" id="profile_image" class="upload" />
                                                 </div>
                                                 <br><br>
                                                 <span id="image_error" class="error"></span>
-                                            </div>
-                                            <div class="spacer-upload-button">
-                                            <div class="fileUpload  button-success pure-button">  
-                                                <span>Submit</span>
-                                                <input type="submit" id="profile_image" class="upload" />
-                                            </div>
-                                            <br><br>
-                                            <span id="image_error" class="error"></span>
+                                        </div>
+                                        <br><br>
+
                                     </div>
-                                    <br><br>
-
-
                                     </form>
                                 </p>
                             </div>
