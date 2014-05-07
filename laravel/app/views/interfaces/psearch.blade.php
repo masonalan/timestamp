@@ -5,7 +5,7 @@
     <h1 class="post-tabs"><a class="recent-link follower-page">Searching posts for {{$query}}</a></h1>
     @foreach($found as $found_post)
     <?php $post = Post::find($found_post->id);
-    $place = Location::find($post->id);?>
+    $place = Location::find($post->location_id);?>
         <section class="post post-container-border">
                         <table class="post-header-table">
                             <tr>
@@ -67,7 +67,7 @@
                                         <br>
                                         <span>Stamped {{date('l F jS g:i A', strtotime($post->created_at))}}</span>
                                         <br>
-                                        <a href="{{url('location/'.$post->id)}}"><span>{{$place->location}}</span></a>
+                                        <a href="{{url('location/'.$post->location_id)}}"><span>{{$place->location}}</span></a>
                                         </p>
                                     </header>
                                 </td>
