@@ -72,6 +72,7 @@ Route::get('/intended', 'UserController@back');
 Route::get('/profile/{id}/followers', 'UserController@detailFollowers');
 Route::get('/profile/{id}/following', 'UserController@detailFollowing');
 Route::post('handleDetails', 'UserController@handleDetails');
+Route::post('/handlepsswd', 'UserController@handlePChange');
 
 /**
  *WorldController (Controls the map and world fucntions)

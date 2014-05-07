@@ -1438,6 +1438,10 @@ li > a > img
     padding-right: 1px !important;
     margin-left: 0em !important;
 }
+.password-change{
+    padding-bottom: 1px !important;
+    padding-top: 1px !important;
+}
 .modal-body textarea, .about-textarea, .details-input
 {
     resize: none;

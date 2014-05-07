@@ -96,8 +96,13 @@
 
                         <div class="post-description">
                             <p>
-                                You are now editing your profile
+                                @if(!empty($problem))
+                                {{$problem}}
+                                <br><a href="#pchange">Retry</a>
 
+                                @else
+                                You are now editing your profile
+                                @endif
                             </p>
                         </div>
                     </section>
@@ -223,7 +228,32 @@
                         <form action="{{action('UserController@handleDetails')}}" method="POST">
                             <div class="post-description">
                                 <input type="text" class="details-input" name="firstname" value="<?php if(empty($user->firstname)){echo "First Name";}else{echo "$user->firstname";}?>">
+                                <div style="height:7px"></div>
                                 <input type="text"  class="details-input" name="lastname" value="<?php if(empty($user->firstname)){echo "Last Name";}else{echo "$user->lastname";}?>">
+
+                            </div>
+                            <br>
+                            <input type="submit" class="button-success pure-button button-success-settings">
+                            <br>
+                            <br>
+                            
+                        </form>
+                        
+                    </section>
+                    <br>
+                    <section class="post post-about-card post-container-border">
+                        <div class="post-header" id="pchange">
+                            Change Your Password
+                            @if(!empty($problem))
+                            <br>
+                                <span style="color:red !important">{{$problem}}</span>
+                            @endif
+                        </div>
+                        <form action="{{action('UserController@handlePChange')}}" method="POST">
+                            <div class="post-description">
+                                <input type="password" class="details-input password-change" name="password" placeholder="Password">
+                                <div style="height:7px"></div>
+                                <input type="password"  class="details-input password-change" name="confirm" placeholder="Confirm Password">
 
                             </div>
                             <br>

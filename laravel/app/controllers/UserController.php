@@ -78,7 +78,13 @@ class UserController extends BaseController {
 			$user_profile_img = 'users/'.$username.$user_id.'/'.$username.'image001.jpg';
 			$titlePage = $user->username;
 			$recent_posts = Post::where('user_id', '=', $user_id)->orderBy('created_at', 'desc')->get();
-			return View::make('interfaces/settings')->with('user', $user)->with('recent_posts', $recent_posts)->with('titlePage', $titlePage)->with('user_profile_img', $user_profile_img);
+			$problem = '';
+			return View::make('interfaces/settings')
+				->with('user', $user)
+				->with('recent_posts', $recent_posts)
+				->with('titlePage', $titlePage)
+				->with('user_profile_img', $user_profile_img)
+				->with('problem', $problem);
 		} else{
 			return Redirect::to('/');
 		}
@@ -186,5 +192,34 @@ class UserController extends BaseController {
 			->with('userProf', $userProf)
 			->with('info', $info)
 			->with('info_check', $info_check);
+	}
+	public function handlePChange()
+	{
+		$user = Auth::user();
+		$password = Input::get('password');
+		$confirmed = Input::get('confirm');
+		if($password == $confirmed)
+		{
+			$user->password = Hash::make($confirmed);
+			$user->save();
+			return Redirect::to('/settings');
+		} else {
+			$user = Auth::user();
+			$user_id = $user->id;
+			$path_to_users = "users";
+			$username = $user->username;
+			$user_path_profile = "users/$username$user_id";
+			$user_image_name = $username.'image001.jpg';
+			$user_profile_img = 'users/'.$username.$user_id.'/'.$username.'image001.jpg';
+			$titlePage = $user->username;
+			$recent_posts = Post::where('user_id', '=', $user_id)->orderBy('created_at', 'desc')->get();
+			$problem = "Passwords do not match";
+			return View::make('interfaces/settings')
+				->with('user', $user)
+				->with('recent_posts', $recent_posts)
+				->with('titlePage', $titlePage)
+				->with('user_profile_img', $user_profile_img)
+				->with('problem', $problem);
+		}
 	}
 }
