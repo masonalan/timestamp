@@ -1273,7 +1273,7 @@ body {
  *
  */
 #comment{
-    width: 46%;
+    width: 100%;
     float: left !important;
 }
 .focused-comment{
