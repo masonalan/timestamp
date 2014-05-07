@@ -217,3 +217,7 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+# Sensitive config files
+*database.php
+# Error debug file
+*app.php
