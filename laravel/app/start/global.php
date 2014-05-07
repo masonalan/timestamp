@@ -1,5 +1,8 @@
 <?php
 
+// Require henry's error handling file
+require("errors.php");
+
 /*
 |--------------------------------------------------------------------------
 | Register The Laravel Class Loader
@@ -79,3 +82,5 @@ App::down(function()
 */
 
 require app_path().'/filters.php';
+
+

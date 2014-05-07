@@ -17,6 +17,7 @@
 });
 */
 
+
 /**
 * Model Binding
 */
@@ -91,3 +92,10 @@ Route::get('location/{id}', 'LocationController@location_list');
 *helping users
 */
 Route::get('/timestamp/help', 'HelpController@helper_new');
+
+/**
+* Testing the 404 route
+*/
+Route::get('/notfound', function() {
+	return View::make('404');
+});
