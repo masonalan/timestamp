@@ -128,16 +128,16 @@ var_dump( $matches );
                             <div class="modal-comment">
                                 <p>
                                     <form action="{{action('PostController@reply', array('post'=>$post->id))}}" method="POST" enctype="multipart/form-data">
-                                    <div class="input-group">
+                                    <!--<div class="input-group">
                                                     <div class="fileUpload button-secondary pure-button input-group-addon">  
                                                         <span>Upload</span>
                                                         <input type="file" id="profile_image" name="post_img" class="upload" />
                                                     </div>
                                                     <br><br>
                                                     <span id="image_error" class="error"></span>
-                                                </div></span>
+                                                </div></span>-->
                                         <input type="text" name="content" id="comment" placeholder="Reply...">
-                                        <div class="spacer-upload-button">
+                                        <!--<div class="spacer-upload-button">
                                                 <div class="spacer-upload-button">
                                                 <div class="input-group-addon fileUpload  button-success pure-button">  
                                                     <span>Submit</span>
@@ -145,7 +145,7 @@ var_dump( $matches );
                                                 </div>
                                                 <br><br>
                                                 <span id="image_error" class="error"></span>
-                                        </div>
+                                        </div>-->
                                         <br><br>
 
                                     </div>
