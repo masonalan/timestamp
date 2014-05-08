@@ -249,7 +249,7 @@
                                 <div class="follower-tab">
                                 @foreach($follower as $detail_id)
                                     <?php $detail = User::orderBy('username', 'desc')->find($detail_id->follower_user_id);?>
-                                    <a href="{{{url('profile/'.$detail->id)}}"><img class="post-avatar" id="profile_picture" height="40" width="40" title="{{$detail->username}}" src="{{asset('users/'.$detail->username.$detail->id.'/'.$detail->username.'image001.jpg')}}"></a>
+                                    <a href="{{url('profile/'.$detail->id)}}"><img class="post-avatar" id="profile_picture" height="40" width="40" title="{{{$detail->username}}}" src="{{asset('users/'.$detail->username.$detail->id.'/'.$detail->username.'image001.jpg')}}"></a>
                                 @endforeach
                                 </div>
                                 <br>
@@ -268,7 +268,7 @@
                                 <div class="follower-tab">
                                 @foreach($following as $detail_id)
                                     <?php $detail = User::orderBy('username', 'desc')->find($detail_id->user_id);?>
-                                    <a href="{{{url('profile/'.$detail->id)}}"><img class="post-avatar" id="profile_picture" height="40" width="40" title="{{$detail->username}}" src="{{asset('users/'.$detail->username.$detail->id.'/'.$detail->username.'image001.jpg')}}}"></a>
+                                    <a href="{{url('profile/'.$detail->id)}}"><img class="post-avatar" id="profile_picture" height="40" width="40" title="{{{$detail->username}}}" src="{{asset('users/'.$detail->username.$detail->id.'/'.$detail->username.'image001.jpg')}}"></a>
                                 @endforeach
                                 </div>
                                 <br>
