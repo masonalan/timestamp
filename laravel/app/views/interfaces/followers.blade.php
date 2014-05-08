@@ -2,7 +2,7 @@
 @section('content')
 <div class="content-wrapper">
     <div class="content">
-    <h1 class="post-tabs"><a class="recent-link follower-page">People Following {{$userProf->username}}</a></h1>
+    <h1 class="post-tabs"><a class="recent-link follower-page">People Following {{{$userProf->username}}}</a></h1>
     @foreach($userProf->followed()->get() as $follower)
     <?php $follower_info = User::orderBy('username', 'desc')->find($follower->follower_user_id);?>
 
@@ -15,7 +15,7 @@
 		                    		
 			                    	<p class="post-meta">
 			                    	
-			                    		<h4>{{$follower_info->username}} is not followed by anyone</h4>
+			                    		<h4>{{{$follower_info->username}}} is not followed by anyone</h4>
 			                    	</p>
 		                    	</header>
 		                    </td>
@@ -35,7 +35,7 @@
 		                    		
 			                    	<p class="post-meta">
 			                    	
-			                    		<h4>{{$follower_info->username}}</h4>
+			                    		<h4>{{{$follower_info->username}}}</h4>
 			                    	</p>
 		                    	</header>
 		                    </td>

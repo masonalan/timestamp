@@ -71,7 +71,7 @@ var_dump( $matches );
                                             <div class="arrow-up {{ $post->id }}"></div>
                                         @endif
                                         <br>
-                                        <span class="post-likes" title="{{$user->username}} likes this">{{$post->countLikes()}}</span>
+                                        <span class="post-likes" title="{{{$user->username}}} likes this">{{$post->countLikes()}}</span>
                                         </button>
                                         
                                         <p class="post-meta">
@@ -184,7 +184,7 @@ var_dump( $matches );
                                         <div class="arrow-up {{ $post->id }}"></div>
                                     @endif
                                     <br>
-                                    <span class="post-likes" title="{{$user->username}} likes this" >{{$post->countLikes()}}</span>
+                                    <span class="post-likes" title="{{{$user->username}}} likes this" >{{$post->countLikes()}}</span>
                                     </button>
 
                                     <p class="post-meta">
