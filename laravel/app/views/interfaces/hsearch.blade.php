@@ -2,7 +2,7 @@
 @section('content')
 <div class="content-wrapper">
     <div class="content">
-    <h1 class="post-tabs"><a class="recent-link follower-page">Your search for #{{$query}}</a></h1>
+    <h1 class="post-tabs"><a class="recent-link follower-page">Your search for #{{{$query}}}</a></h1>
         <a href="{{url('feed')}}" class="follower-div-link"><div class="post-spacer-profile">
             <section class="post post-container-border">
                     <table class="post-header-table">

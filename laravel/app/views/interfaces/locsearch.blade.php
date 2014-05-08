@@ -2,7 +2,7 @@
 @section('content')
 <div class="content-wrapper">
     <div class="content">
-    <h1 class="post-tabs"><a class="recent-link follower-page">Your regional search for {{$query}}</a></h1>
+    <h1 class="post-tabs"><a class="recent-link follower-page">Your regional search for {{{$query}}}</a></h1>
     @foreach($found as $found_location)
     <?php $found_info = Location::find($found_location->id);?>
         <a href="{{url('location/'.$found_info->id)}}" class="follower-div-link"><div class="post-spacer-profile">

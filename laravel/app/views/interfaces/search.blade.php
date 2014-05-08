@@ -2,7 +2,7 @@
 @section('content')
 <div class="content-wrapper">
     <div class="content">
-    <h1 class="post-tabs"><a class="recent-link follower-page">Your search for {{$query}}</a></h1>
+    <h1 class="post-tabs"><a class="recent-link follower-page">Your search for {{{$query}}}</a></h1>
     @foreach($found as $found_user)
     <?php $found_info = User::orderBy('username', 'desc')->find($found_user->id);?>
         <a href="{{url('profile/'.$found_info->id)}}" class="follower-div-link"><div class="post-spacer-profile">
@@ -17,7 +17,7 @@
                                     
                                     <p class="post-meta">
                                     
-                                        <h4>{{$found_info->username}}</h4>
+                                        <h4>{{{$found_info->username}}}</h4>
                                     </p>
                                 </header>
                             </td>

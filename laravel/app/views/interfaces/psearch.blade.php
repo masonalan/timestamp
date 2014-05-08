@@ -2,7 +2,7 @@
 @section('content')
 <div class="content-wrapper">
     <div class="content">
-    <h1 class="post-tabs"><a class="recent-link follower-page">Searching posts for {{$query}}</a></h1>
+    <h1 class="post-tabs"><a class="recent-link follower-page">Searching posts for {{{$query}}}</a></h1>
     @foreach($found as $found_post)
     <?php $post = Post::find($found_post->id);
     $place = Location::find($post->location_id);?>
@@ -23,7 +23,7 @@
                                         @endif
                                         
                                         <br>
-                                        <span class="post-likes" title="{{$user->username}} likes this">{{$post->countLikes()}}</span>
+                                        <span class="post-likes" title="{{$user->username}} likes this">{{{$post->countLikes()}}}</span>
                                         </button>
                                         
                                         <p class="post-meta">
