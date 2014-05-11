@@ -11,7 +11,7 @@ var_dump( $matches );
 
 <div class="content-wrapper">
     <div class="content noah-well">
-        <div class="well">
+        <div class="">
             <h1 class="post-tabs"><a class="recent-link" href="javascript:sort('recent')">recent</a> <a class="top-link" href="javascript:sort('top')">popular</a></h1>
             <!--<a class="suggested-link" target="_blank" href="http://bit.ly/1fgJVRa"><div class="suggested-left">
                 <section class="post post-container-border">
