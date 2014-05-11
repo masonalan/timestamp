@@ -182,7 +182,13 @@ class UserController extends BaseController {
 	{
 		$user = Auth::user();
 		$userProf = User::find($id);
+		$checker = '';
 		$info_check = $userProf->following()->first();
+		if(!is_null($info_check))
+		{
+			$checker = 'not empty';
+		}
+
 		$info = $userProf->following()->get();
 		$titlePage = "$userProf->username - Following";
 		
@@ -191,7 +197,7 @@ class UserController extends BaseController {
 			->with('user', $user)
 			->with('userProf', $userProf)
 			->with('info', $info)
-			->with('info_check', $info_check);
+			->with('checker', $checker);
 	}
 	public function handlePChange()
 	{

@@ -1313,6 +1313,7 @@ body {
     padding: 5px;
     width: 50%; 
     float: left;
+    border: 1px solid black;
 }
 .post-spacer-profile
 {
@@ -1323,8 +1324,9 @@ body {
 .post-spacer-right
 {
     padding: 5px;
-    width: 50%; 
-    float: right;
+    width: 100%; 
+    border: 1px solid black;
+    float: middle !important;
 }
 
 .post-table
@@ -1611,9 +1613,14 @@ input[type="search"]:-ms-input-placeholder { /* Internet Explorer 10+ */
 
 .recent-posts-left, .recent-posts-right
 {
-    float: left;
-    width: 50%;
+
+    width: 80%;
     padding: 5px;
+    float: middle;
+    margin-left: 10%;
+}
+.align-center-noah{
+    float: center;
 }
 .post-author{
     float: left !important;

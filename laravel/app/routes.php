@@ -28,7 +28,7 @@ Route::model('post', 'Post');
  */
 
 Route::get('/', 'HomeController@splash');
-Route::group(array('before' => 'auth.basic'), function() {
+//Route::group(array('before' => 'auth.basic'), function() {
 Route::post('/subscribe', 'HomeController@subscribe');
 Route::get('/qwertytest', 'HomeController@start');
 
@@ -100,4 +100,4 @@ Route::get('/timestamp/help', 'HelpController@helper_new');
 Route::get('/notfound', function() {
 	return View::make('404');
 });
-});
+//});

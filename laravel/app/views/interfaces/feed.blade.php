@@ -10,8 +10,8 @@ var_dump( $matches );
 ?>
 
 <div class="content-wrapper">
-    <div class="content">
-        <div>
+    <div class="content noah-well">
+        <div class="well">
             <h1 class="post-tabs"><a class="recent-link" href="javascript:sort('recent')">recent</a> <a class="top-link" href="javascript:sort('top')">popular</a></h1>
             <!--<a class="suggested-link" target="_blank" href="http://bit.ly/1fgJVRa"><div class="suggested-left">
                 <section class="post post-container-border">
@@ -31,19 +31,14 @@ var_dump( $matches );
                 
                 </section>
             </div></a>-->
-            <div class="recent-posts-left">
-            </div>
-            <div class="recent-posts-right">
+            
+            <div class="recent-posts-right ">
             </div>
             <div class="recent-posts">
             <?php $counter = 0;
             $tracker=0; ?>
             @foreach($recent_posts as $post)
-            @if ($counter%2==0)
-            <div class="post-spacer-left recent">
-            @else
             <div class="post-spacer-right recent">
-            @endif
             <?php 
             /*
             $timezone = Config::get('app.timezone', 'EST');
@@ -55,7 +50,7 @@ var_dump( $matches );
 
             */
             ?>
-                <section class="post post-container-border">
+                <section class="post post-container-border align-center-noah">
                         <table class="post-header-table">
                             <tr>
                                 <td>

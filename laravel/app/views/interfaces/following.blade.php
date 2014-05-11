@@ -5,24 +5,9 @@
     <h1 class="post-tabs"><a class="recent-link follower-page">People {{{$userProf->username}}} is following</a></h1>
     @foreach($info as $follower)
     <?php $follower_info = User::orderBy('username', 'desc')->find($follower->user_id);?>
-    	@if(!empty($info_check))
-    		<section class="post post-container-border">
-		            <table class="post-header-table">
-		                <tr>
-		                    <td>
-		                    	<header class="post-header">
-		                    		
-			                    	<p class="post-meta">
-			                    	
-			                    		<h4>{{{$user->username}}} is not following anyone</h4>
-			                    	</p>
-		                    	</header>
-		                    </td>
-		                </tr>
-		            </table>
-			</section>
-    	@endif
-		<a href="{{url('profile/'.$follower_info->id)}}" class="follower-div-link"><div class="post-spacer-profile">
+
+    	@if(!empty($checker))
+    	<a href="{{url('profile/'.$follower_info->id)}}" class="follower-div-link"><div class="post-spacer-profile">
 		    <section class="post post-container-border">
 		            <table class="post-header-table">
 		                <tr>
@@ -33,7 +18,7 @@
 		                    	<header class="post-header">
 		                    		
 			                    	<p class="post-meta">
-			                    	<?php var_dump($info_check);?>
+			                    	
 			                    	
 			                    		<h4>{{{$follower_info->username}}}</h4>
 			                    	</p>
@@ -43,6 +28,24 @@
 		            </table>
 			</section>
 		</div></a>
+    	@else
+    	<div class="post-spacer-profile"><section class="post post-container-border">
+		            <table class="post-header-table">
+		                <tr>
+		                    <td>
+		                    	<header class="post-header">
+		                    		
+			                    	<p class="post-meta">
+			                    	<?php var_dump($info_check);?>
+			                    		<h4>{{{$user->username}}} is not following anyone</h4>
+			                    	</p>
+		                    	</header>
+		                    </td>
+		                </tr>
+		            </table>
+			</section></div>
+		
+		@endif
 	@endforeach
 	</div>
 </div>
