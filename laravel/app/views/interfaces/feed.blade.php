@@ -97,8 +97,7 @@ var_dump( $matches );
                                 @endif
                                 <br>
                             </p>
-                        </a>
-                        </div>
+                        </div></a>
                         @foreach($post->replies()->take(3)->orderBy('id', 'desc')->get() as $reply)
                         <?php 
                         $tracker++;
@@ -189,7 +188,7 @@ var_dump( $matches );
                     </table>
                     
 
-                    <div class="post-description">
+                    <a href="{{url('post/'.$post->id)}}" class="tab-post-links"><div class="post-description">
                         <p>
                             {{{$post->content}}}
                             @if(file_exists('post_img'))
@@ -203,7 +202,55 @@ var_dump( $matches );
                                     <span>Image not found on server</span>
                                 @endif
                         </p>
-                    </div>
+                    </div></a>
+                    @foreach($post->replies()->take(3)->orderBy('id', 'desc')->get() as $reply)
+                        <?php 
+                        $tracker++;
+                        ?>
+                        <hr>
+
+                        <a href="{{url("profile/$reply->user_id")}}"><img class="post-avatar reply-avatar" alt="Tilo Mitra&#x27;s avatar" height="38" width="38" src="{{asset('users/'.$reply->user_info()->username.$reply->user_info()->id.'/'.$reply->user_info()->username.'image001.jpg')}}"></a> 
+                        <a href="{{url("profile/$reply->user_id")}}" class="post-author">{{{$reply->user->username}}}</a><span class="reply-timestamp"> on {{date('l F jS g:i A', strtotime($reply->created_at))}}</span>
+                        <br>
+                        <a class="tab-post-links" href="{{url('post/'.$post->id.'#'.$reply->id)}}"><p>
+                            {{{$reply->content}}}
+                            @if($reply->image_id == 1)
+                                <?php 
+                                list($width, $height) = getimagesize('reply_img/'.$reply->id.'/'.$reply->id.'reply001.jpg');?>
+                                <link rel="stylesheet" type="text/css" href="{{asset('image.css')}}">
+                                <br>
+                                    <center><img style="width:50%;height:auto" class="{{$post->image_class}}" src="{{asset('reply_img/'.$reply->id.'/'.$reply->id.'reply001.jpg')}}"></center>
+                            @endif
+                        </p></a>
+                        @endforeach
+                        <hr>
+                            <div class="modal-comment">
+                                <p>
+                                    <form action="{{action('PostController@reply', array('post'=>$post->id))}}" method="POST" enctype="multipart/form-data">
+                                    <!--<div class="input-group">
+                                                    <div class="fileUpload button-secondary pure-button input-group-addon">  
+                                                        <span>Upload</span>
+                                                        <input type="file" id="profile_image" name="post_img" class="upload" />
+                                                    </div>
+                                                    <br><br>
+                                                    <span id="image_error" class="error"></span>
+                                                </div></span>-->
+                                        <input type="text" name="content" id="comment" placeholder="Reply...">
+                                        <!--<div class="spacer-upload-button">
+                                                <div class="spacer-upload-button">
+                                                <div class="input-group-addon fileUpload  button-success pure-button">  
+                                                    <span>Submit</span>
+                                                    <input type="submit" id="profile_image" class="upload" />
+                                                </div>
+                                                <br><br>
+                                                <span id="image_error" class="error"></span>
+                                        </div>-->
+                                        <br><br>
+
+                                    </div>
+                                    </form>
+                                </p>
+                            </div>
                 </section>
             </div>
             @endforeach

@@ -351,7 +351,7 @@
 			"file": "laravel/public/css/blog.css",
 			"settings":
 			{
-				"buffer_size": 27287,
+				"buffer_size": 27258,
 				"line_ending": "Windows"
 			}
 		},
@@ -359,7 +359,7 @@
 			"file": "laravel/app/views/interfaces/feed.blade.php",
 			"settings":
 			{
-				"buffer_size": 14157,
+				"buffer_size": 17604,
 				"line_ending": "Windows"
 			}
 		},
@@ -709,7 +709,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -749,15 +749,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 27287,
+						"buffer_size": 27258,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								22271,
-								22271
+								22929,
+								22929
 							]
 						],
 						"settings":
@@ -770,10 +770,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 16342.0,
+						"translation.y": 16654.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -782,15 +782,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 14157,
+						"buffer_size": 17604,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								280,
-								280
+								15629,
+								15629
 							]
 						],
 						"settings":
@@ -803,10 +803,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 124.0,
+						"translation.y": 2683.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -837,7 +837,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
