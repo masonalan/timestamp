@@ -157,11 +157,7 @@ var_dump( $matches );
             <div class="top-posts">
             <?php $counter = 0; ?>
             @foreach($top_posts as $post)
-            @if ($counter%2==0)
-            <div class="post-spacer-left top">
-            @else
             <div class="post-spacer-right top">
-            @endif
             <?php $counter++; ?>
                 <section class="post post-container-border">
                     <table class="post-header-table">
