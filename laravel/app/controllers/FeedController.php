@@ -6,7 +6,10 @@ class FeedController extends BaseController {
 		if(Auth::check()){
 			$user = Auth::user();
 			$titlePage = "Timestamp";
-			$following = $user->following()->get();
+			$following = $user->following()->pluck('user_id');
+			//trying to get the id and then use that in the foreach
+			//this is for personalized feeds btw
+			dd($following);
 			$following_id = '';
 			$counter = 0;
 			foreach($following as $f)
@@ -14,6 +17,8 @@ class FeedController extends BaseController {
 				$counter = $counter + 1;
 
 				$following_id = $following_id.$f->user_id.'.';
+				$all_posts.$f->id = Post::where('user_id', '=', $f->id)->get();
+				die(var_dump($all_posts.$f->id));
 
 			}
 			$test = explode('.', $following_id);
@@ -28,7 +33,11 @@ class FeedController extends BaseController {
 			$user_profile_img = 'users/'.$username.$userId.'/'.$username.'image001.jpg';
 			
 			
-			return View::make('interfaces.feed')->with('user', $user)->with('recent_posts', $recent_posts)->with('titlePage', $titlePage)->with('top_posts', $top_posts)->with('user_profile_img', $user_profile_img);
+			return View::make('interfaces.feed')
+				->with('user', $user)->with('recent_posts', $recent_posts)
+				->with('titlePage', $titlePage)
+				->with('top_posts', $top_posts)
+				->with('user_profile_img', $user_profile_img);
 		} else{
 			return Redirect::to('/');
 		}
