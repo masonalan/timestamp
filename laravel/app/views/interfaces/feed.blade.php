@@ -41,11 +41,10 @@ var_dump( $matches );
             <div class="post-spacer-right recent">
             <?php 
             /*
-            $timezone = Config::get('app.timezone', 'EST');
-            if(date('l F jS g:i A', strtotime($post->created_at))>date('l F jS g:i A')){
+            if(date('l F jS g:i A', strtotime($post->deleting_at))>date('l F jS g:i A')){
                 $posted_time = $post->created_at;
                 dd($strtotime($posted_time));
-                DB::table('posts')->where("strtotime($posted_time)", ">", "172800")->delete();
+                DB::table('posts')->where("strtotime($deleting_at)", ">", "172800")->delete();
             }
 
             */
