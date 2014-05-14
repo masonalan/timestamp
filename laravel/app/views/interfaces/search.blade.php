@@ -6,7 +6,7 @@
     @foreach($found as $found_user)
     <?php $found_info = User::orderBy('username', 'desc')->find($found_user->id);?>
         <a href="{{url('profile/'.$found_info->id)}}" class="follower-div-link"><div class="post-spacer-profile">
-            <section class="post post-container-border recent-posts-right">
+            <section class="post post-container-border">
                     <table class="post-header-table">
                         <tr>
                             <td>

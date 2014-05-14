@@ -6,7 +6,7 @@
     @foreach($found as $found_post)
     <?php $post = Post::find($found_post->id);
     $place = Location::find($post->location_id);?>
-        <section class="post post-container-border">
+        <section class="post post-container-border recent-posts-right">
                         <table class="post-header-table">
                             <tr>
                                 <td>
