@@ -306,7 +306,7 @@ function sort(way){
         });
         $('.recent-posts-left').html(left);
         $('.recent-posts-right').html(right);
-        $('.post-spacer-left.top').hide();
+        //$('.post-spacer-left.top').hide();
         $('.post-spacer-right.top').hide();
         $('.recent-posts').hide();
         $('.top-posts').show();
