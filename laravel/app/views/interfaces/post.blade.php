@@ -19,7 +19,8 @@
 
             */
             ?>
-                <section class="post post-container-border">
+            <h1 class="post-tabs"><a class="recent-link follower-page">{{$user->username}} Stamped...</a></h1>
+                <section class="post post-container-border recent-posts-right">
                         <table class="post-header-table">
                             <tr>
                                 <td>

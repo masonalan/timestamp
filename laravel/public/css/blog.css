@@ -1237,7 +1237,7 @@ h3 {
 }
 
 body {
-    background-color: #eee;
+    background-color: rgb(235, 235, 235);
 }
 
 @media (min-width: 48em) {
@@ -1612,10 +1612,10 @@ input[type="search"]:-ms-input-placeholder { /* Internet Explorer 10+ */
 .recent-posts-left, .recent-posts-right
 {
 
-    width: 80%;
+    width: 70%;
     padding: 5px;
     float: middle;
-    margin-left: 10%;
+    margin-left: 15%;
 }
 .align-center-noah{
     float: center;

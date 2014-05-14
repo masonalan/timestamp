@@ -4,7 +4,7 @@
 	<script type="text/javascript">
 		$(function(){
 			$('.timer').countdown({
-				target: "October 31, 2015 00:00:00", 
+				target: "{{$post->deleting_at}}", 
 				parts: ['days', 'hours', 'minutes', 'seconds'],
 				separator: ":",
 				leadingZero: true
