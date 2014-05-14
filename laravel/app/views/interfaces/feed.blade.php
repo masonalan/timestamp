@@ -5,7 +5,7 @@ $tweet = "this has a #hashtag a  #badhash-tag and a #goodhash_tag";
 
 
 preg_match_all("/(#\w+)/", $tweet, $matches);
-var_dump( $matches );
+//var_dump( $matches );
 
 ?>
 
@@ -38,6 +38,7 @@ var_dump( $matches );
             <?php $counter = 0;
             $tracker=0; ?>
             @foreach($recent_posts as $post)
+            
             <div class="post-spacer-right recent">
             <?php 
             /*
@@ -69,7 +70,8 @@ var_dump( $matches );
                                         </button>
                                         
                                         <p class="post-meta">
-                                        <a href="{{url("profile/$post->user_id")}}" class="post-author">{{{$post->username()}}}</a> <br><span class="time"> <span class="glyphicon glyphicon-time"></span></span>
+                                        <a href="{{url("profile/$post->user_id")}}" class="post-author">{{{$post->username()}}}</a> <br><span class="time">
+                                        <span class="glyphicon glyphicon-time timer">@yield('post_count_down')</span></span>
                                         <br>
                                         <span>Stamped {{date('l F jS g:i A', strtotime($post->created_at))}}</span>
                                         </p>

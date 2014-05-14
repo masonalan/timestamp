@@ -13,17 +13,17 @@ if(empty($titlePage)){
 <html lang="en">
 <head>
     <title>{{$titlePage}}</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <link rel="stylesheet" href="{{asset('css/pure.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/marketing.css')}}">
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/font.awesome.css')}}">
     <link rel="stylesheet" href="{{asset('css/blog.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('image.css')}}">
-    <script type="text/javascript" src="{{asset('js/countdown/jquery.plugin.js')}}"></script> 
-    <script type="text/javascript" src="{{asset('js/countdown/jquery.countdown.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/jquery.countdown.js')}}"></script> 
+    <script type="text/css" src="{{asset('js/jquery.countdown.css')}}"></script>
     <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/1.4.1/css/ionicons.min.css">
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="{{asset('js/countdown/jquery.countdown.css')}}"> 
+    <link rel="stylesheet" type="text/css" href="{{asset('js/jquery.countdown.min.js')}}">
 </head>
 <body>
 <div class="header">
