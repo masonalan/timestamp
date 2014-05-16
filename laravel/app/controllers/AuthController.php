@@ -42,7 +42,7 @@ class AuthController extends BaseController {
 			if(!file_exists($user_path_profile)){
 				mkdir($user_path_profile);
 				copy('prof.jpg', $user_profile_img);
-				copy('graphics/background-n.jpg', '../'.$user_banner_img);
+				copy('background-n.jpg', $user_banner_img);
 				if ($log_count < 8) {
 					return Redirect::action('HelpController@helper_new');
 				} else{
@@ -63,9 +63,11 @@ class AuthController extends BaseController {
 				$path_to_users = "users";
 				$user_profile_img = 'users/'.$username.$userId.'/'.$username.'image001.jpg';
 				$user_path_profile = "users/$username$userId";
+				$user_banner_img = 'users/'.$username.$userId.'/'.$username.'banner001.jpg';
 				if(!file_exists($user_path_profile)){
 					mkdir($user_path_profile);
 					copy('prof.jpg', $user_profile_img);
+					copy('background-n.jpg', $user_banner_img);
 					if ($log_count < 8) {
 						return Redirect::action('HelpController@helper_new');
 					} else{
