@@ -1623,3 +1623,19 @@ input[type="search"]:-ms-input-placeholder { /* Internet Explorer 10+ */
 .post-author{
     float: left !important;
 }
+.transparent{
+    opacity: .93;
+}
+.cover{
+    /*border:1px solid black;*/
+    padding-top: 170px;
+    padding-bottom: 20px;
+    border-radius: 5px;
+    background-position: center;
+    background-size: 100% 100%;
+    padding-right: 13px;
+    padding-left: 13px;
+}
+.cover:hover{
+    
+}

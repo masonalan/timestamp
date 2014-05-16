@@ -27,6 +27,7 @@ class UserController extends BaseController {
 			$follower = $userProf->followed()->take(5)->get();
 			$following = $userProf->following()->take(5)->get();
 			$recent_posts = Post::where('user_id', '=', $userProf->id)->orderBy('created_at', 'desc')->get();
+			$test = Post::where('user_id', '=', $userProf->id)->orderBy('created_at', 'desc')->first();
 			return View::make('interfaces/profile')
 				->with('user', $user)
 				->with('recent_posts', $recent_posts)
@@ -34,7 +35,8 @@ class UserController extends BaseController {
 				->with('userProf', $userProf)
 				->with('user_profile_img', $user_profile_img)
 				->with('follower', $follower)
-				->with('following', $following);
+				->with('following', $following)
+				->with('test', $test);
 		} else{
 			return Redirect::to('/');
 		}
@@ -50,6 +52,32 @@ class UserController extends BaseController {
 		$user_path_profile = "users/$username$userId";
 		$user_image_name = $username.'image001.jpg';
 		$file = Input::file('profile');
+		if(file_exists($path_to_users))
+		{
+			if(file_exists("$user_path_profile")){
+				$file->move("$user_path_profile/", $user_image_name);
+			} else {
+			mkdir("$user_path_profile");
+				$file->move("$user_path_profile/", $user_image_name);
+		}
+
+		} else {
+			mkdir("users");
+			mkdir("$user_path_profile");
+			$file->move("$user_path_profile/", $user_image_name);
+		}
+		return Redirect::to("profile/$user->id");
+	}
+	public function handleBanner()
+	{
+		$user = Auth::user();
+		$username = $user->username;
+		$userId = $user->id;
+		$path_to_users = "users";
+		$user_profile_img = 'users/'.$username.$userId.'/'.$username.'banner001.jpg';
+		$user_path_profile = "users/$username$userId";
+		$user_image_name = $username.'banner001.jpg';
+		$file = Input::file('banner');
 		if(file_exists($path_to_users))
 		{
 			if(file_exists("$user_path_profile")){

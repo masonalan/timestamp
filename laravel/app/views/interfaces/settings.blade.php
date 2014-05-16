@@ -4,7 +4,8 @@
 <div class="content-wrapper">
     <div class="content">
         <div>
-            <section class="post">
+        <section class="cover" style="background-image:url('{{asset('users/'.$user->username.$user->id.'/'.$user->username.'banner001.jpg')}}')">
+            <section class="post transparent">
                 <table class="post-header-table">
                     <tr>
                         <td> 
@@ -56,7 +57,7 @@
                             </header>
                         </td>
                         <td>
-                            <form action="{{action('UserController@handleUpload')}}" method="POST" enctype="multipart/form-data" onchange="this.form.submit()">
+                            <form action="{{action('UserController@handleUpload')}}" method="POST" enctype="multipart/form-data" >
                                 
                                 <div class="spacer-upload-button">
                                     <div class="fileUpload button-secondary pure-button">  
@@ -71,6 +72,7 @@
                     </tr>
                 </table>
                 
+            </section>
             </section>
             <h1 class="post-tabs"><a class="reminder-link" href="javascript:sort('reminder-sort')">Reminder</a> <a class="posts-link" href="javascript:sort('posts-sort')">Posts</a></h1>
             <div class="profile-posts reminder-sort">
@@ -101,7 +103,25 @@
                                 <br><a href="#pchange">Retry</a>
 
                                 @else
-                                You are now editing your profile
+                                You are now editing your profile<br>
+                                You can change your banner here
+                                <form action="{{action('UserController@handleBanner')}}" method="POST" enctype="multipart/form-data">
+                                
+                                    <div class="spacer-upload-button">
+                                        <div class="fileUpload button-secondary pure-button">  
+                                            <span>Upload</span>
+                                            <input type="file" id="profile_image" name="banner" class="upload" required />
+                                        </div>
+                                        <span id="image_error" class="error"></span>
+                                    </div>
+                                    <div class="spacer-upload-button">
+                                        <div class="fileUpload  button-success pure-button">  
+                                            <span>Submit</span>
+                                            <input type="submit" id="profile_image" class="upload" />
+                                        </div>
+                                        <span id="image_error" class="error"></span>
+                                    </div>
+                                </form>
                                 @endif
                             </p>
                         </div>

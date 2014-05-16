@@ -4,7 +4,8 @@
 <div class="content-wrapper">
     <div class="content">
         <div>
-            <section class="post">
+            <section class="cover" style="background-image:url('{{asset('users/'.$userProf->username.$userProf->id.'/'.$userProf->username.'banner001.jpg')}}')">
+            <section class="post transparent">
                 <table class="post-header-table" id="stamps">
                     <tr>
                         <td> 
@@ -113,11 +114,44 @@
                 </table>
                 
             </section>
+            </section>
             <h1 class="post-tabs"><a class="recent-link">Posts</a></h1>
             <div class="profile-posts">
+            @if(is_null($test))
+            <div class="post-spacer-profile" style="height:400px">
+                <section class="post post-container-border" id="stamps">
+                        <table class="post-header-table">
+                            <tr>
+                                <td>
+                                    <img class="post-avatar" alt="Tilo Mitra&#x27;s avatar" height="48" width="48" src="{{asset('users/'.$userProf->username.$userProf->id.'/'.$userProf->username.'image001.jpg')}}">
+                                </td>
+                                <td>
+                                    <header class="post-header">
+                                        <p class="post-meta">
+                                        <a class="post-author">{{$userProf->username}}</a> <br><span class="time">Heads up!</span>
+                                        <br>
+                                        <br>
+                                        </p>
+                                    </header>
+                                </td>
+                            </tr>
+                        </table>
+                        
+
+                        <div class="post-description">
+                            <p>
+                                
+                                I don't have any stamps yet... ):
+                            </p>
+                        </div>
+                    </section>
+                
+            </div>
+            @endif
             @foreach($recent_posts as $post)
+
             <div class="post-spacer-profile">
-                <section class="post post-container-border">
+                <section class="post post-container-border" >
                         <table class="post-header-table">
                             <tr>
                                 <td>
@@ -179,7 +213,9 @@
                             @endif
                         </p></a>
                         @endforeach
+
                     </section>
+
                 </div>
             @endforeach
             </div>

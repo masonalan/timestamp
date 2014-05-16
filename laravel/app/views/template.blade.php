@@ -9,6 +9,7 @@ if(empty($titlePage)){
   $titlePage = 'Error';
 }
 
+
 ?>
 <html lang="en">
 <head>
