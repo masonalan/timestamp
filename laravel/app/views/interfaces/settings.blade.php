@@ -5,6 +5,23 @@
     <div class="content">
         <div>
         <section class="cover" style="background-image:url('{{asset('users/'.$user->username.$user->id.'/'.$user->username.'banner001.jpg')}}')">
+            <form action="{{action('UserController@handleBanner')}}" class="test-spacer-saver" method="POST" enctype="multipart/form-data">
+                <div class="spacer-upload-button">
+                    <div class="fileUpload button-secondary pure-button">  
+                        <span>Upload</span>
+                        <input type="file" id="profile_image" name="banner" class="upload" required />
+                    </div>
+                    <span id="image_error" class="error"></span>
+                </div>
+                <div class="spacer-upload-button">
+                    <div class="fileUpload  button-success pure-button">  
+                        <span>Submit</span>
+                        <input type="submit" id="profile_image" class="upload" />
+                    </div>
+                    <span id="image_error" class="error"></span>
+                </div>
+            </form>
+            <div class="spacer-upload"></div>
             <section class="post transparent">
                 <table class="post-header-table">
                     <tr>
@@ -52,7 +69,26 @@
                                     <h4>{{$user->username}}</h4>
 
                                 <p class="post-meta">
-                                    <a href="#" class="post-author">{{$user->username}}</a> has been a user for <span class="time">  <span class="glyphicon glyphicon-time"></span></span>
+                                    <a href="#" class="post-author">{{$user->username}}</a>&nbsphas been a user <span class="time">  <?php 
+                                    $created_stamp = $user->created_at;
+                                    $created_time = strtotime($created_stamp);
+                                    $current_stamp = time();
+                                    if ($created_time == 0) {
+                                        $since = "since The Beginning";
+                                        echo "$since <span class=\"glyphicon glyphicon-star-empty\"></span>";
+                                    }
+                                    else{
+                                        $local = '14400';
+
+                                        $since_general = $current_stamp-$created_time;
+                                        $since = $since_general-$local;
+                                        
+                                        $since_time = date('l F jS g:i A Y', $created_time);
+                                        $since_statement = "from $since_time";
+                                        echo "$since_statement <span class=\"glyphicon glyphicon-time\"></span>";
+                                    }
+
+                                    ?></span></span>
                                 </p>
                             </header>
                         </td>
@@ -105,23 +141,6 @@
                                 @else
                                 You are now editing your profile<br>
                                 You can change your banner here
-                                <form action="{{action('UserController@handleBanner')}}" method="POST" enctype="multipart/form-data">
-                                
-                                    <div class="spacer-upload-button">
-                                        <div class="fileUpload button-secondary pure-button">  
-                                            <span>Upload</span>
-                                            <input type="file" id="profile_image" name="banner" class="upload" required />
-                                        </div>
-                                        <span id="image_error" class="error"></span>
-                                    </div>
-                                    <div class="spacer-upload-button">
-                                        <div class="fileUpload  button-success pure-button">  
-                                            <span>Submit</span>
-                                            <input type="submit" id="profile_image" class="upload" />
-                                        </div>
-                                        <span id="image_error" class="error"></span>
-                                    </div>
-                                </form>
                                 @endif
                             </p>
                         </div>

@@ -407,7 +407,7 @@
 			"file": "laravel/app/controllers/AuthController.php",
 			"settings":
 			{
-				"buffer_size": 2651,
+				"buffer_size": 2766,
 				"line_ending": "Windows"
 			}
 		},
@@ -903,8 +903,8 @@
 						"selection":
 						[
 							[
-								256,
-								150
+								2035,
+								2035
 							]
 						],
 						"settings":
@@ -929,26 +929,27 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2651,
+						"buffer_size": 2766,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1430,
-								1430
+								2155,
+								2155
 							]
 						],
 						"settings":
 						{
+							"incomplete_sync": null,
 							"remote_loading": false,
 							"synced": false,
 							"syntax": "Packages/PHP/PHP.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": -0.0,
-						"translation.y": 161.0,
+						"translation.y": 379.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,

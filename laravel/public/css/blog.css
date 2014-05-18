@@ -1628,14 +1628,22 @@ input[type="search"]:-ms-input-placeholder { /* Internet Explorer 10+ */
 }
 .cover{
     /*border:1px solid black;*/
-    padding-top: 170px;
     padding-bottom: 20px;
     border-radius: 5px;
     background-position: center;
     background-size: 100% 100%;
     padding-right: 13px;
     padding-left: 13px;
+    padding-top: 50px;
 }
-.cover:hover{
-    
+.cover form.test-spacer-saver{
+    display: none;
+}
+
+.cover:hover form.test-spacer-saver{
+    display: inherit;
+}
+
+.spacer-upload{
+    padding-bottom: 90px;
 }

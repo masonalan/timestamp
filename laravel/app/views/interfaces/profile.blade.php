@@ -5,6 +5,25 @@
     <div class="content">
         <div>
             <section class="cover" style="background-image:url('{{asset('users/'.$userProf->username.$userProf->id.'/'.$userProf->username.'banner001.jpg')}}')">
+                @if($userProf->id == $user->id)
+                <form action="{{action('UserController@handleBanner')}}" class="test-spacer-saver" method="POST" enctype="multipart/form-data">
+                    <div class="spacer-upload-button">
+                        <div class="fileUpload button-secondary pure-button">  
+                            <span>Upload</span>
+                            <input type="file" id="profile_image" name="banner" class="upload" required />
+                        </div>
+                        <span id="image_error" class="error"></span>
+                    </div>
+                    <div class="spacer-upload-button">
+                        <div class="fileUpload  button-success pure-button">  
+                            <span>Submit</span>
+                            <input type="submit" id="profile_image" class="upload" />
+                        </div>
+                        <span id="image_error" class="error"></span>
+                    </div>
+                </form>
+                @endif
+            <div class="spacer-upload"></div>
             <section class="post transparent">
                 <table class="post-header-table" id="stamps">
                     <tr>
