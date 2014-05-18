@@ -4,7 +4,7 @@
 $tweet = "this has a #hashtag a  #badhash-tag and a #goodhash_tag";
 
 
-preg_match_all("/(#\w+)/", $tweet, $matches);
+//preg_match_all("/(#\w+)/", $tweet, $matches);
 //var_dump( $matches );
 
 ?>
@@ -39,7 +39,7 @@ preg_match_all("/(#\w+)/", $tweet, $matches);
             $tracker=0; ?>
             @foreach($recent_posts as $post)
             
-            <div class="post-spacer-right recent">
+            <div class="post-spacer-right recent post-spacer-bottom-more">
             <?php 
             /*
             if(date('l F jS g:i A', strtotime($post->deleting_at))>date('l F jS g:i A')){

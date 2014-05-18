@@ -1647,3 +1647,7 @@ input[type="search"]:-ms-input-placeholder { /* Internet Explorer 10+ */
 .spacer-upload{
     padding-bottom: 90px;
 }
+
+.post-spacer-bottom-more{
+    padding-bottom: 100px !important;
+}
