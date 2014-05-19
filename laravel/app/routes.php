@@ -80,7 +80,7 @@ Route::post('/profile/handleBanner', 'UserController@handleBanner');
 /**
  *WorldController (Controls the map and world fucntions)
  */
-Route::get('/world', 'WorldController@world');
+Route::get('/explore', 'WorldController@world');
 
 /**
 *for searching shit

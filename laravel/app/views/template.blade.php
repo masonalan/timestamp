@@ -25,6 +25,7 @@ if(empty($titlePage)){
     <script type="text/css" src="{{asset('js/jquery.countdown.css')}}"></script>
     <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/1.4.1/css/ionicons.min.css">
     <link rel="stylesheet" type="text/css" href="{{asset('js/jquery.countdown.min.js')}}">
+  
 </head>
 <body>
 <div class="header">
@@ -113,6 +114,9 @@ if(empty($titlePage)){
 <script src="{{asset('js/jquery.js')}}"></script>
 <script src="{{asset('js/autogrow.js')}}"></script>
 <script src="{{asset('js/bootstrap.min.js')}}"></script>
+
+
+<script src="assets/jquery-jvectormap-world-mill-en.js"></script>
 <script type="text/javascript">
 $('#previews').hide();
 $('#clear_upload').hide();

@@ -1,59 +1,43 @@
-@extends('template')
-@section('content')
-<?php
-$tweet = "this has a #hashtag a  #badhash-tag and a #goodhash_tag";
-
-preg_match_all("/(#\w+)/", $tweet, $matches);
-
-?>
+<!DOCTYPE html>
+<html>
 <head>
-    <link rel="stylesheet" media="all" href="world/jquery-jvectormap.css"/>
-<script src="world/assets/jquery-1.8.2.js"></script>
-<script src="world/jquery-jvectormap.js"></script>
-<script src="world/jquery-mousewheel.js"></script>
+  <title>jVectorMap demo</title>
+  <link rel="stylesheet" media="all" href="../jquery-jvectormap.css"/>
+  <script src="assets/jquery-1.8.2.js"></script>
+  <script src="../jquery-jvectormap.js"></script>
+  <script src="../jquery-mousewheel.js"></script>
 
-<script src="world/lib/jvectormap.js"></script>
+  <script src="../lib/jvectormap.js"></script>
 
-<script src="world/lib/abstract-element.js"></script>
-<script src="world/lib/abstract-canvas-element.js"></script>
-<script src="world/lib/abstract-shape-element.js"></script>
+  <script src="../lib/abstract-element.js"></script>
+  <script src="../lib/abstract-canvas-element.js"></script>
+  <script src="../lib/abstract-shape-element.js"></script>
 
-<script src="world/lib/svg-element.js"></script>
-<script src="world/lib/svg-group-element.js"></script>
-<script src="world/lib/svg-canvas-element.js"></script>
-<script src="world/lib/svg-shape-element.js"></script>
-<script src="world/lib/svg-path-element.js"></script>
-<script src="world/lib/svg-circle-element.js"></script>
+  <script src="../lib/svg-element.js"></script>
+  <script src="../lib/svg-group-element.js"></script>
+  <script src="../lib/svg-canvas-element.js"></script>
+  <script src="../lib/svg-shape-element.js"></script>
+  <script src="../lib/svg-path-element.js"></script>
+  <script src="../lib/svg-circle-element.js"></script>
 
-<script src="world/lib/vml-element.js"></script>
-<script src="world/lib/vml-group-element.js"></script>
-<script src="world/lib/vml-canvas-element.js"></script>
-<script src="world/lib/vml-shape-element.js"></script>
-<script src="world/lib/vml-path-element.js"></script>
-<script src="world/lib/vml-circle-element.js"></script>
+  <script src="../lib/vml-element.js"></script>
+  <script src="../lib/vml-group-element.js"></script>
+  <script src="../lib/vml-canvas-element.js"></script>
+  <script src="../lib/vml-shape-element.js"></script>
+  <script src="../lib/vml-path-element.js"></script>
+  <script src="../lib/vml-circle-element.js"></script>
 
-<script src="world/lib/vector-canvas.js"></script>
-<script src="world/lib/simple-scale.js"></script>
-<script src="world/lib/numeric-scale.js"></script>
-<script src="world/lib/ordinal-scale.js"></script>
-<script src="world/lib/color-scale.js"></script>
-<script src="world/lib/data-series.js"></script>
-<script src="world/lib/proj.js"></script>
-<script src="world/lib/world-map.js"></script>
-</head>
+  <script src="../lib/vector-canvas.js"></script>
+  <script src="../lib/simple-scale.js"></script>
+  <script src="../lib/numeric-scale.js"></script>
+  <script src="../lib/ordinal-scale.js"></script>
+  <script src="../lib/color-scale.js"></script>
+  <script src="../lib/data-series.js"></script>
+  <script src="../lib/proj.js"></script>
+  <script src="../lib/world-map.js"></script>
 
-<div class="content-wrapper">
-    <div class="content">
-    <div style="height: 100%;width:100%;"></div>
-  <div id="map1" style="width: 100%; height: 500px"></div>
-  <button id="focus-single">Focus on Australia</button>
-  <button id="focus-multiple">Focus on Australia and Japan</button>
-  <button id="focus-init">Return to the initial state</button>
-</div>
-</div>
-
-@section('js')
-<script>
+  <script src="assets/jquery-jvectormap-world-mill-en.js"></script>
+  <script>
     jQuery.noConflict();
     jQuery(function(){
       var $ = jQuery;
@@ -267,63 +251,12 @@ preg_match_all("/(#\w+)/", $tweet, $matches);
       });
     })
   </script>
-<script type="text/javascript">
-
-
-function like(post_id){
-    $.ajax({
-        type: 'POST',
-        data: {
-            'post_id': post_id
-        },
-        url: '{{ url('like')}}'
-    }).done(function(data){
-        $('.' + post_id).attr('class', data + ' ' + post_id);
-    });
-}
-function sort(way){
-    if (way == 'recent') {
-        var left = '', right = '';
-        $('.post-spacer-left.recent').each(function(){
-            left = left + '<div class="post-spacer">' + $(this).html() + '</div>';
-        });
-        $('.post-spacer-right.recent').each(function(){
-            right = right + '<div class="post-spacer">' + $(this).html() + '</div>';
-        });
-        $('.recent-posts-left').html(left);
-        $('.recent-posts-right').html(right);
-        $('.post-spacer-left.recent').hide();
-        $('.post-spacer-right.recent').hide();
-        $('.top-posts').hide();
-        $('.recent-posts').show();
-        $('.recent-link').css('text-decoration', 'underline');
-        $('.top-link').css('text-decoration', 'none');
-    }
-    else {
-        var left = '', right = '';
-        $('.post-spacer-left.top').each(function(){
-            left = left + '<div class="post-spacer">' + $(this).html() + '</div>';
-        });
-        $('.post-spacer-right.top').each(function(){
-            right = right + '<div class="post-spacer">' + $(this).html() + '</div>';
-        });
-        $('.recent-posts-left').html(left);
-        $('.recent-posts-right').html(right);
-        $('.post-spacer-left.top').hide();
-        $('.post-spacer-right.top').hide();
-        $('.recent-posts').hide();
-        $('.top-posts').show();
-        $('.recent-link').css('text-decoration', 'none');
-        $('.top-link').css('text-decoration', 'underline');
-    }
-}
-$(document).ready(function(){
-    sort('recent');
-});
-</script>
-            
-
-@stop
-
-
-
+</head>
+<body>
+  <div style="height: 100%;width:100%;"></div>
+  <div id="map1" style="width: 100%; height: 500px"></div>
+  <button id="focus-single">Focus on Australia</button>
+  <button id="focus-multiple">Focus on Australia and Japan</button>
+  <button id="focus-init">Return to the initial state</button>
+</body>
+</html>
