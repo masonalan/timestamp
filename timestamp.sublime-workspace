@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"tran",
+				"transition"
+			],
+			[
 				"p",
 				"padding-bottom"
 			],
@@ -383,7 +387,7 @@
 			"file": "laravel/public/css/blog.css",
 			"settings":
 			{
-				"buffer_size": 27738,
+				"buffer_size": 28208,
 				"line_ending": "Windows"
 			}
 		},
@@ -781,7 +785,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -812,7 +816,7 @@
 						"translation.y": 729.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -821,15 +825,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 27738,
+						"buffer_size": 28208,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								27734,
-								27734
+								28093,
+								28093
 							]
 						],
 						"settings":
@@ -842,10 +846,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 20938.0,
+						"translation.y": 20963.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -878,7 +882,7 @@
 						"translation.y": 2966.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -911,7 +915,7 @@
 						"translation.y": 343.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -940,11 +944,11 @@
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": -0.0,
+						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -977,7 +981,7 @@
 						"translation.y": 1643.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
@@ -1042,7 +1046,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{

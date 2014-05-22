@@ -1635,13 +1635,27 @@ input[type="search"]:-ms-input-placeholder { /* Internet Explorer 10+ */
     padding-right: 13px;
     padding-left: 13px;
     padding-top: 50px;
+    -webkit-transition: opacity .7s ease-in;
+    -moz-transition: opacity .7s ease-in;
+    -o-transition: opacity .7s ease-in;
+    -ms-transition: opacity .7s ease-in;
+    transition: opacity .7s ease-in;
+}
+.cover:hover{
+    opacity: .6;
 }
 .cover form.test-spacer-saver{
     display: none;
+    -webkit-transition: opacity .7s ease-in;
+    -moz-transition: opacity .7s ease-in;
+    -o-transition: opacity .7s ease-in;
+    -ms-transition: opacity .7s ease-in;
+    transition: opacity .7s ease-in;
 }
 
 .cover:hover form.test-spacer-saver{
     display: inherit;
+    opacity: 1 !important;
 }
 
 .spacer-upload{
