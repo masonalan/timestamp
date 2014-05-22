@@ -1638,14 +1638,14 @@ input[type="search"]:-ms-input-placeholder { /* Internet Explorer 10+ */
     
 }
 .cover-user{
-    -webkit-transition: opacity .7s ease-in;
-    -moz-transition: opacity .7s ease-in;
-    -o-transition: opacity .7s ease-in;
-    -ms-transition: opacity .7s ease-in;
-    transition: opacity .7s ease-in;
+    -webkit-transition: opacity .5s ease-in;
+    -moz-transition: opacity .5s ease-in;
+    -o-transition: opacity .5s ease-in;
+    -ms-transition: opacity .5s ease-in;
+    transition: opacity .5s ease-in;
 }
 .cover-user:hover{
-    opacity: .6;
+    opacity: .8;
 }
 .cover form.test-spacer-saver{
     display: none;
