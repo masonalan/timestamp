@@ -4,7 +4,7 @@
 <div class="content-wrapper">
     <div class="content">
         <div>
-            <section class="cover" style="background-image:url('{{asset('users/'.$userProf->username.$userProf->id.'/'.$userProf->username.'banner001.jpg')}}')">
+            <section @if($userProf->id == $user->id) {{"class='cover cover-user'"}} @else {{"class='cover'"}} @endif style="background-image:url('{{asset('users/'.$userProf->username.$userProf->id.'/'.$userProf->username.'banner001.jpg')}}')">
                 @if($userProf->id == $user->id)
                 <form action="{{action('UserController@handleBanner')}}" class="test-spacer-saver" method="POST" enctype="multipart/form-data">
                     <div class="spacer-upload-button">
