@@ -19,7 +19,7 @@ class SearchController extends BaseController {
 					->with('found', $found)
 					->with('query', $query);
 			} elseif ($type == 'post') {
-				$found = Post::where('content', 'like', '%'.$query.'%')->get();
+				$found = Post::where('content', 'like', '%'.$query.'%')->orderBy('id', 'desc')->get();
 				return View::make('interfaces/psearch')
 					->with('titlePage', $titlePage)->with('user', $user)
 					->with('user_profile_img', $user_profile_img)
@@ -27,7 +27,7 @@ class SearchController extends BaseController {
 					->with('found', $found)
 					->with('query', $query);
 			} elseif ($type == 'tag') {
-				$found = Post::where('content', 'like', '%'.$query.'%')->get();
+				$found = Post::where('content', 'like', '%'.$query.'%')->orderBy('id', 'desc')->get();
 				return View::make('interfaces/hsearch')
 					->with('titlePage', $titlePage)->with('user', $user)
 					->with('user_profile_img', $user_profile_img)

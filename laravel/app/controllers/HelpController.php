@@ -9,4 +9,8 @@ class HelpController extends BaseController {
 			->with('titlePage', $titlePage)
 			->with('user', $user);
 	}
+	public function t_s()
+	{
+		return View::make('interfaces/help/timestamp');
+	}
 }

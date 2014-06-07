@@ -1668,3 +1668,16 @@ input[type="search"]:-ms-input-placeholder { /* Internet Explorer 10+ */
 .post-spacer-bottom-more{
     padding-bottom: 100px !important;
 }
+.badge-noah{
+    font-color:inherit;
+}
+.closed{
+    -webkit-transition: border-color .3s ease-in;
+    -moz-transition: border-color .3s ease-in;
+    -o-transition: border-color .3s ease-in;
+    -ms-transition: border-color .3s ease-in;
+    transition: border-color .3s ease-in;
+}
+.closed:hover{
+    border-color: #DB2929 !important;
+}

@@ -94,6 +94,7 @@ Route::get('location/{id}', 'LocationController@location_list');
 *helping users
 */
 Route::get('/timestamp/help', 'HelpController@helper_new');
+Route::get('/timestamp', 'HelpController@t_s');
 
 /**
 * Testing the 404 route

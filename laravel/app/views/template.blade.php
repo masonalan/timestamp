@@ -13,7 +13,7 @@ if(empty($titlePage)){
 ?>
 <html lang="en">
 <head>
-    <title>{{$titlePage}}</title>
+    <title>@yield('title')</title>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <link rel="stylesheet" href="{{asset('css/pure.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/marketing.css')}}">
@@ -35,7 +35,6 @@ if(empty($titlePage)){
         <ul>
             <form method="POST" action="{{action('SearchController@handleSearch')}}">
             <li><input type="search" name="search" placeholder="Search"></li>
-            <li><a href="#"><i class="ion-android-earth icon-size-noah"></i></a></li>
             <li><a href="{{action('FeedController@feed')}}"><i class="ion-social-buffer icon-size-noah"></i></a></li>
             <li><a href="#" data-toggle="modal" data-target="#post"><i class="ion-edit icon-size-noah"></i></a></li>
             <li><a href="{{url("profile/$user->id")}}"><img class="icon-size-noah" src="{{asset($user_profile_img)}}"/></a></li>

@@ -1,4 +1,7 @@
 @extends('template')
+@section('title')
+{{{$post->user_info()->username}}} | {{{$post->content}}}
+@stop
 @section('content')
 <?php $location = Location::where('post_id', '=', $post->id)->get();?>
 <div class="content-wrapper">
@@ -19,7 +22,7 @@
 
             */
             ?>
-            <h1 class="post-tabs"><a class="recent-link follower-page">{{$user->username}} Stamped...</a></h1>
+            <h1 class="post-tabs"><a class="recent-link follower-page">{{$post->user_info()->username}} Stamped...</a></h1>
                 <section class="post post-container-border recent-posts-right">
                         <table class="post-header-table">
                             <tr>
@@ -86,6 +89,7 @@
                             @endif
                         </p>
                         @endforeach
+                        @if(time() - $post->deleting_at < 604800)
                         <hr>
                             <div class="modal-comment">
                                 <p>
@@ -114,6 +118,7 @@
                                     </form>
                                 </p>
                             </div>
+                        @endif
                     </section>
                     
                 </div>

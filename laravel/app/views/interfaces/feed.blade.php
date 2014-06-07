@@ -1,4 +1,7 @@
 @extends('template')
+@section('title')
+Feed
+@stop
 @section('content')
 <?php
 $tweet = "this has a #hashtag a  #badhash-tag and a #goodhash_tag";
@@ -50,11 +53,12 @@ $tweet = "this has a #hashtag a  #badhash-tag and a #goodhash_tag";
 
             */
             ?>
-                <section class="post post-container-border align-center-noah">
+            
+                <section class="post post-container-border align-center-noah @if(time() - $post->deleting_at > 604800) closed @endif">
                         <table class="post-header-table">
                             <tr>
                                 <td>
-                                    <a href="{{url("profile/$post->user_id")}}"><img class="post-avatar" alt="Tilo Mitra&#x27;s avatar" height="48" width="48" src="{{asset('users/'.$post->user_info()->username.$post->user_info()->id.'/'.$post->user_info()->username.'image001.jpg')}}"></a>
+                                    <a href="{{url("profile/$post->user_id")}}"><img class="post-avatar" title="{{$post->user_info()->username}}" alt="Tilo Mitra&#x27;s avatar" height="48" width="48" src="{{asset('users/'.$post->user_info()->username.$post->user_info()->id.'/'.$post->user_info()->username.'image001.jpg')}}"></a>
                                 </td>
                                 <td>
                                     <header class="post-header">
@@ -66,7 +70,7 @@ $tweet = "this has a #hashtag a  #badhash-tag and a #goodhash_tag";
                                             <div class="arrow-up {{ $post->id }}"></div>
                                         @endif
                                         <br>
-                                        <span class="post-likes" title="{{{$user->username}}} likes this">{{$post->countLikes()}}</span>
+                                        <span class="post-likes" title="{{{$post->likers()}}}">{{$post->countLikes()}}</span>
                                         </button>
                                         
                                         <p class="post-meta">
@@ -119,6 +123,7 @@ $tweet = "this has a #hashtag a  #badhash-tag and a #goodhash_tag";
                             @endif
                         </p></a>
                         @endforeach
+                        @if(time() - $post->deleting_at < 604800)
                         <hr>
                             <div class="modal-comment">
                                 <p>
@@ -147,6 +152,7 @@ $tweet = "this has a #hashtag a  #badhash-tag and a #goodhash_tag";
                                     </form>
                                 </p>
                             </div>
+                        @endif
                             
                     </section>
                     
@@ -159,11 +165,11 @@ $tweet = "this has a #hashtag a  #badhash-tag and a #goodhash_tag";
             @foreach($top_posts as $post)
             <div class="post-spacer-right top">
             <?php $counter++; ?>
-                <section class="post post-container-border">
+                <section class="post post-container-border @if(time() - $post->deleting_at > 604800) closed @endif">
                     <table class="post-header-table">
                         <tr>
                             <td>
-                                <img class="post-avatar" alt="Tilo Mitra&#x27;s avatar" height="48" width="48" src="{{asset('users/'.$post->user_info()->username.$post->user_info()->id.'/'.$post->user_info()->username.'image001.jpg')}}">
+                                <img class="post-avatar" title="{{$post->user_info()->username}}" alt="Tilo Mitra&#x27;s avatar" height="48" width="48" src="{{asset('users/'.$post->user_info()->username.$post->user_info()->id.'/'.$post->user_info()->username.'image001.jpg')}}">
                             </td>
                             <td>
                                 <header class="post-header">
@@ -175,7 +181,7 @@ $tweet = "this has a #hashtag a  #badhash-tag and a #goodhash_tag";
                                         <div class="arrow-up {{ $post->id }}"></div>
                                     @endif
                                     <br>
-                                    <span class="post-likes" title="{{{$user->username}}} likes this" >{{$post->countLikes()}}</span>
+                                    <span class="post-likes" title="{{{$post->likers()}}}" >{{$post->countLikes()}}</span>
                                     </button>
 
                                     <p class="post-meta">
@@ -224,6 +230,7 @@ $tweet = "this has a #hashtag a  #badhash-tag and a #goodhash_tag";
                             @endif
                         </p></a>
                         @endforeach
+                        @if(time() - $post->deleting_at < 604800)
                         <hr>
                             <div class="modal-comment">
                                 <p>
@@ -252,6 +259,7 @@ $tweet = "this has a #hashtag a  #badhash-tag and a #goodhash_tag";
                                     </form>
                                 </p>
                             </div>
+                        @endif
                 </section>
             </div>
             @endforeach
@@ -291,7 +299,7 @@ function sort(way){
         $('.recent-posts-right').html(right);
         $('.post-spacer-left.recent').hide();
         $('.post-spacer-right.recent').hide();
-        $('.top-posts').hide();
+        $('.top').hide();
         $('.recent-posts').show();
         $('.recent-link').css('text-decoration', 'underline');
         $('.top-link').css('text-decoration', 'none');

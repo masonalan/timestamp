@@ -88,4 +88,18 @@ class Post extends Eloquent implements UserInterface, RemindableInterface
 	{
 		return $this->hasMany('Reply');
 	}
+	public function likers()
+	{
+		$final = '';
+		$counter = '';
+		$likes = Like::where('post_id', '=', $this->id)->orderBy('id', 'random')->get();
+		foreach($likes as $name) {
+			$liker = User::find($name->user_id);
+			$almost = $liker->username.' likes this&#13;';
+			$final = $final.$almost;
+			$counter = $counter++;
+		}
+
+		return $final;
+	}
 }

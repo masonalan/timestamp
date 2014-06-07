@@ -107,6 +107,7 @@
                             @endif
                         </p>
                         @endforeach
+                        @if(time() - $post->deleting_at < 604800)
                         <hr>
                             <div class="modal-comment">
                                 <p>
@@ -135,6 +136,7 @@
                                     </form>
                                 </p>
                             </div>
+                        @endif
                     </section>
                     <br>
     @endforeach

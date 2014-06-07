@@ -1,4 +1,7 @@
 @extends('template')
+@section('title')
+{{$userProf->username}}
+@stop
 @section('content')
 
 <div class="content-wrapper">

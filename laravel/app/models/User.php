@@ -43,6 +43,11 @@ public function getRememberTokenName()
 		return $this->getKey();
 	}
 
+	public function notification()
+	{
+		return $this->hasMany("Notification");
+	}
+
 	public function posts(){
 		return $this->hasMany('Post');
 	}
@@ -69,6 +74,15 @@ public function getRememberTokenName()
 		$counter = 0;
 		foreach ($posts as $post) {
 			$counter += 1;
+		}
+		return $counter;
+	}
+	public function notificationCount()
+	{
+		$counter = 0;
+		$notification = Notification::where('user_id', '=', $this->id)->where('viewed', '=', '0')->get();
+		foreach ($notification as $count) {
+			$counter = $counter + 1;
 		}
 		return $counter;
 	}

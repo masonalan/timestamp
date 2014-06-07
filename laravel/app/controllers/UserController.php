@@ -24,8 +24,8 @@ class UserController extends BaseController {
 			$user_image_name = $username.'image001.jpg';
 			$titlePage = $userProf->username;
 			$user_profile_img = 'users/'.$username.$userId.'/'.$username.'image001.jpg';
-			$follower = $userProf->followed()->take(5)->get();
-			$following = $userProf->following()->take(5)->get();
+			$follower = $userProf->followed()->take(5)->orderBy('id', 'random')->get();
+			$following = $userProf->following()->take(5)->orderBy('id', 'random')->get();
 			$recent_posts = Post::where('user_id', '=', $userProf->id)->orderBy('created_at', 'desc')->get();
 			$test = Post::where('user_id', '=', $userProf->id)->orderBy('created_at', 'desc')->first();
 			return View::make('interfaces/profile')
