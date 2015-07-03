@@ -1,0 +1,21 @@
+{
+    "name": "phpids/phpids",
+    "description": "PHPIDS (PHP-Intrusion Detection System) is a simple to use, well structured, fast and state-of-the-art security layer for your PHP based web application",
+    "license": "LGPL-3.0+",
+    "homepage": "http://phpids.org",
+    "authors": [
+        {
+            "name": "Lars Strojny",
+            "email": "lars@strojny.net"
+        }
+    ],
+    "require": {
+        "ezyang/htmlpurifier": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+            "IDS\\Tests": "tests/",
+            "IDS": "lib/"
+        }
+    }
+}

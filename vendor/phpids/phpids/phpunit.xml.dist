@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit backupGlobals="false"
+         convertErrorsToExceptions="true"
+         convertWarningsToExceptions="true"
+         convertNoticesToExceptions="true"
+         mapTestClassNameToCoveredClassName="true"
+         strict="true"
+         verbose="true"
+         colors="true"
+         timeoutForLargeTests="100"
+         bootstrap="tests/IDS/Tests/bootstrap.php">
+
+    <testsuites>
+        <testsuite name="PHPIDS">
+            <directory>./tests/</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <whitelist addUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">./lib</directory>
+        </whitelist>
+    </filter>
+
+    <logging>
+        <log type="coverage-html"
+            target="docs/coverage/"
+            charset="UTF-8"
+            yui="true"
+            highlight="true"
+            lowUpperBound="60"
+            highLowerBound="80" />
+    </logging>
+    <php>
+        <var name="IDS_TEMP_DIR" value="/tmp"/>
+        <var name="IDS_CONFIG" value="lib/IDS/Config/Config.ini.php"/>
+        <var name="IDS_FILTER_CACHE_FILE" value="/tmp/default_filter.cache"/>
+        <var name="IDS_FILTER_TYPE" value="xml"/>
+        <var name="IDS_FILTER_SET" value="lib/IDS/default_filter.xml"/>
+        <var name="IDS_FILTER_SET_XML" value="lib/IDS/default_filter.xml"/>
+        <var name="IDS_FILTER_SET_JSON" value="lib/IDS/default_filter.json"/>
+    </php>
+</phpunit>
